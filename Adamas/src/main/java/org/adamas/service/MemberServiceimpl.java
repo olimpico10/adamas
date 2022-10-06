@@ -14,4 +14,9 @@ public class MemberServiceimpl implements MemberService{
 	public void signup(MemberVO member) {
 		mm.signup(member);
 	}
+	
+	// 로그인 구현
+	public MemberVO login(MemberVO member) {
+		return mm.login(member);
+	}
 }
