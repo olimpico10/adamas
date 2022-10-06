@@ -20,7 +20,9 @@
 		<form action="member/logout" method="post">
 			<input type="submit" value="로그아웃">
 		</form>
-	</c:if>
+	</c:if>	
 	
+	<!-- 임시로 글쓰기 페이지 연결 -->
+	<a href="/board/write">글쓰기 페이지</a>
 </body>
 </html>
