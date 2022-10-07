@@ -27,7 +27,6 @@
 	</bean>
 	
 	<mybatis-spring:scan base-package="org.adamas.mapper"/>
-	<context:component-scan base-package="org.adamas.service"></context:component-scan>
-		
+	<context:component-scan base-package="org.adamas.service"/>
 		
 </beans>
