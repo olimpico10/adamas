@@ -3,6 +3,35 @@
  */
 
 $(document).ready(function(){
+	
+	$('#summernote').summernote({
+		height: 700,
+		minHeight: null,
+		maxHeight: null,
+		focus: true,
+		lang: "ko-KR",
+		placeholder: "내용을 입력하세요.",
+		toolbar: [
+			// [groupName, [list of button]]
+			['fontname', ['fontname']],
+			['fontsize', ['fontsize']],
+			['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+			['color', ['forecolor','color']],
+			['table', ['table']],
+			['para', ['ul', 'ol', 'paragraph']],
+			['height', ['height']],
+			['insert',['picture','link','video']],
+			['view', ['fullscreen', 'help']]
+		],
+		fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
+		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+	})
+	
+	/**
+	 * 이미지 업로드 방식 다르게
+	 * /
+	$.ajaxSetup({async : false});
+	
 	$('#summernote').summernote({
 		height: 700,
 		minHeight: null,
@@ -23,11 +52,14 @@ $(document).ready(function(){
 			['view', ['fullscreen', 'help']]
 		],
 		fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],
+		fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72'],	
 		callbacks: {
 			// 이미지를 첨부하는 부분
-			onImageUpload : function(files){		
-				uploadSummernoteImageFile(files[0], this);
+			onImageUpload : function(files, editor, welEditable){
+				// 파일 업로드(다중업로드를 위해 반복문 사용)
+				for(var i = files.length - 1; i >= 0; i--){
+					uploadSummernoteImageFile(files[i],this);
+				}	
 			},
 			onPaste: function (e){
 				var clipboardData = e.originalEvent.clipboardData;
@@ -41,20 +73,22 @@ $(document).ready(function(){
 		} 
 	})
 	
+	
 	// 이미지 파일 업로드
-	function uploadSummernoteImageFile(file, editor){
-		data = new FormData();
+	function uploadSummernoteImageFile(file, el){
+		var data = new FormData();
 		data.append("file", file);
 		$.ajax({
 			data : data,
 			type : "POST",
 			url : "/uploadSummernoteImageFile",
+			enctype: 'multipart/form-data',
 			contentType : false,
 			processData : false,
 			success : function(data){
-				//항상 업로드 된 파일의 url이 있어야 한다
-				$(editor).summernote('insertImage', data.url);
+				$(el).summernote('editor.insertImage',data.url);
 			}
 		})
 	}
+	*/
 })

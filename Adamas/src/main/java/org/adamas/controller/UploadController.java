@@ -23,10 +23,11 @@ import com.google.gson.JsonObject;
 @Controller
 public class UploadController {
 
+	/*
 	// summernote 이미지 업로드
 	@RequestMapping(value="/uploadSummernoteImageFile", produces = "application/json")
 	@ResponseBody
-	public JsonObject uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
+	public String uploadSummernoteImageFile(@RequestParam("file") MultipartFile multipartFile) {
 		JsonObject jsonObject = new JsonObject();
 		
 		// 저장 될 외부 파일 경로
@@ -54,8 +55,9 @@ public class UploadController {
 			jsonObject.addProperty("responseCode", "error");
 			e.printStackTrace();
 		}
+		String jsonvalue = jsonObject.toString();
 		
-		return jsonObject;
+		return jsonvalue;
 	}
 	
 	
@@ -79,6 +81,7 @@ public class UploadController {
 		
 		return result;
 	}
+	*/
 	
 
 }
