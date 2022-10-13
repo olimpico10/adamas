@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>ADAMAS</title>
 <link rel="stylesheet" href="/resources/css/main.css" >
+<link rel="stylesheet" href="/resources/css/ball.css" >
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -16,7 +17,7 @@
 	</div>
 
 	<!-- 번호생성기 -->
-	<a href="/lotto/generators">번호생성기</a>
+	<a href="/lotto/generator">번호생성기</a>
 	
 	<!-- 번호분석 -->
 	<a href="/lotto/number">번호분석</a>

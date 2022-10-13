@@ -21,10 +21,12 @@ public class BoardController {
 	
 	// 글쓰기 페이지(insert)
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
-	public void write(BoardVO board) {
+	public String write(BoardVO board) {
 		System.out.println("글쓰기 페이지 : "+board);
 		
 		bs.write(board);
+		
+		return "redirect:/board/list";
 	}
 	
 	// 글목록 페이지
