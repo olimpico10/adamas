@@ -8,16 +8,31 @@
 <title>번호발생기</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/generator.js"></script>
+<link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/ball.css" >
 </head>
 <body>
 	<h1>직접생성</h1>
 	<div class="checkedNum_wrap">
-		<ul id="checkedNum"></ul><br>
+		<ul class="checkedNum"></ul><br>
 	</div>
 	<div>
 		<button id="reset">초기화</button>
 		<button>저장</button><br>
+		 <c:forEach var="i" begin="1" end="45">
+		 	<input type="checkbox" class="chkNum" id="ball${i}" value="${i}"><label for="ball${i}"></label>
+		 	<c:choose>
+		 		<c:when test="${i%10 == 0}">
+		 			<br>
+		 		</c:when>
+		 		<c:when test="${i%45 == 0}">
+		 			<br>
+		 		</c:when>
+		 	</c:choose>
+		 </c:forEach>	
+		<label>과거순위보기</label>
+	</div>
+
 		<!-- 이 밑에거는 반복되는 거니까 for문을 돌리자 --><!-- 	
 		<input type="checkbox" class="chkNum" id="ball1" value="1"><label for="ball1"></label>
 		<input type="checkbox" class="chkNum" id="ball2" value="2"><label for="ball2"></label>
@@ -65,20 +80,6 @@
 		<input type="checkbox" class="chkNum" id="ball44" value="44"><label for="ball44"></label>
 		<input type="checkbox" class="chkNum" id="ball45" value="45"><label for="ball45"></label> <br>
 		 -->
-		 <c:forEach var="i" begin="1" end="45">
-		 	<input type="checkbox" class="chkNum" id="ball${i}" value="${i}"><label for="ball${i}"></label>
-		 	<c:choose>
-		 		<c:when test="${i%10 == 0}">
-		 			<br>
-		 		</c:when>
-		 		<c:when test="${i%45 == 0}">
-		 			<br>
-		 		</c:when>
-		 	</c:choose>
-		 </c:forEach>	
-		<label>과거순위보기</label>
-	</div>
-	
 	
 </body>
 </html>

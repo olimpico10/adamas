@@ -18,7 +18,7 @@ $(document).ready(function(){
 				checkedNum.push($(this).val());
 				checkedNum.sort(function(a, b) {return a-b;});
 			}					
-		}else{
+		}else{							// checkbox 체크 해제 될 때
 			alert("체크해제한다"+$(this).val());
 			checkedNum = checkedNum.filter(item => item != $(this).val());
 		}
@@ -30,7 +30,7 @@ $(document).ready(function(){
 			str += "</li>"
 		}
 
-		$("#checkedNum").html(str);
+		$(".checkedNum").html(str);
 		alert(checkedNum);
 	})
 	
@@ -45,7 +45,7 @@ $(document).ready(function(){
 			$(this).prop("checked", false);
 		})
 		
-		$("#checkedNum").html(str);
+		$(".checkedNum").html(str);
 		alert(checkedNum);
 	})
 })

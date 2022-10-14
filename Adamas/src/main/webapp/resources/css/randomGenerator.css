@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.chkBtn{
+	opacity: 0.2;
+}
+
+
+/* 임시로 구분하기 위해서 만듬 */
+
+#fixedNum{
+	background: yellow;
+}
+
+#fixedBtn{
+	background: green;
+}
+
+#excludedBtn{
+	background: red;
+}

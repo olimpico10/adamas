@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>ADAMAS</title>
+<link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/main.css" >
-<link rel="stylesheet" href="/resources/css/ball.css" >
 </head>
 <body>
 	<%@ include file="header.jsp"%>
@@ -18,6 +18,12 @@
 
 	<!-- 번호생성기 -->
 	<a href="/lotto/generator">번호생성기</a>
+	
+	<!-- 랜덤 발생기 -->
+	<a href="/lotto/randomGenerator">랜덤발생기</a>
+	
+	<!-- 과거순위 보기 -->
+	<a href="/lotto/compare">과거순위보기</a>
 	
 	<!-- 번호분석 -->
 	<a href="/lotto/number">번호분석</a>

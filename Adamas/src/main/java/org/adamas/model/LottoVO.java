@@ -16,8 +16,28 @@ public class LottoVO {
 	int ball5;
 	// 여섯번째공
 	int ball6;
-	// 2등공
-	int secondplace;
+	// 보너스공
+	int bonus;
+	// 1등 상금
+	long firstPrize;
+	// 1등 당첨인원
+	int firstWinner;
+	// 2등 상금
+	long secondPrize;
+	// 2등 당첨인원
+	int secondWinner;
+	// 3등 상금
+	long thirdPrize;
+	// 3등 당첨인원
+	int thirdWinner;
+	// 4등 상금
+	long fourthPrize;
+	// 4등 당첨인원	
+	int fourthWinner;
+	// 5등 상금
+	long fifthPrize;
+	// 5등 당첨인원	
+	int fifthWinner;
 	
 	public int getLno() {
 		return lno;
@@ -61,18 +81,81 @@ public class LottoVO {
 	public void setBall6(int ball6) {
 		this.ball6 = ball6;
 	}
-	public int getSecondplace() {
-		return secondplace;
+	public int getBonus() {
+		return bonus;
 	}
-	public void setSecondplace(int secondplace) {
-		this.secondplace = secondplace;
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
+	public long getFirstPrize() {
+		return firstPrize;
+	}
+	public void setFirstPrize(long firstPrize) {
+		this.firstPrize = firstPrize;
+	}
+	public int getFirstWinner() {
+		return firstWinner;
+	}
+	public void setFirstWinner(int firstWinner) {
+		this.firstWinner = firstWinner;
+	}
+	public long getSecondPrize() {
+		return secondPrize;
+	}
+	public void setSecondPrize(long secondPrize) {
+		this.secondPrize = secondPrize;
+	}
+	public int getSecondWinner() {
+		return secondWinner;
+	}
+	public void setSecondWinner(int secondWinner) {
+		this.secondWinner = secondWinner;
+	}
+	public long getThirdPrize() {
+		return thirdPrize;
+	}
+	public void setThirdPrize(long thirdPrize) {
+		this.thirdPrize = thirdPrize;
+	}
+	public int getThirdWinner() {
+		return thirdWinner;
+	}
+	public void setThirdWinner(int thirdWinner) {
+		this.thirdWinner = thirdWinner;
+	}
+	public long getFourthPrize() {
+		return fourthPrize;
+	}
+	public void setFourthPrize(long fourthPrize) {
+		this.fourthPrize = fourthPrize;
+	}
+	public int getFourthWinner() {
+		return fourthWinner;
+	}
+	public void setFourthWinner(int fourthWinner) {
+		this.fourthWinner = fourthWinner;
+	}
+	public long getFifthPrize() {
+		return fifthPrize;
+	}
+	public void setFifthPrize(long fifthPrize) {
+		this.fifthPrize = fifthPrize;
+	}
+	public int getFifthWinner() {
+		return fifthWinner;
+	}
+	public void setFifthWinner(int fifthWinner) {
+		this.fifthWinner = fifthWinner;
 	}
 	
 	@Override
 	public String toString() {
 		return "LottoVO [lno=" + lno + ", ball1=" + ball1 + ", ball2=" + ball2 + ", ball3=" + ball3 + ", ball4=" + ball4
-				+ ", ball5=" + ball5 + ", ball6=" + ball6 + ", secondplace=" + secondplace + "]";
+				+ ", ball5=" + ball5 + ", ball6=" + ball6 + ", bonus=" + bonus + ", firstPrize=" + firstPrize
+				+ ", firstWinner=" + firstWinner + ", secondPrize=" + secondPrize + ", secondWinner=" + secondWinner
+				+ ", thirdPrize=" + thirdPrize + ", thirdWinner=" + thirdWinner + ", fourthPrize=" + fourthPrize
+				+ ", fourthWinner=" + fourthWinner + ", fifthPrize=" + fifthPrize + ", fifthWinner=" + fifthWinner
+				+ "]";
 	}
-	
 	
 }
