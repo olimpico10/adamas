@@ -14,12 +14,12 @@ $(document).ready(function(){
 				$(this).prop("checked", false);
 				alert("6개까지만 선택 가능합니다");				
 			}else{						// checkbox 체크 해제 될 때
-				alert("체크한다"+$(this).val());
+				//alert("체크한다"+$(this).val());
 				checkedNum.push($(this).val());
 				checkedNum.sort(function(a, b) {return a-b;});
 			}					
 		}else{							// checkbox 체크 해제 될 때
-			alert("체크해제한다"+$(this).val());
+			//alert("체크해제한다"+$(this).val());
 			checkedNum = checkedNum.filter(item => item != $(this).val());
 		}
 		
@@ -31,7 +31,7 @@ $(document).ready(function(){
 		}
 
 		$(".checkedNum").html(str);
-		alert(checkedNum);
+		//alert(checkedNum);
 	})
 	
 	// 초기화 버튼을 눌렀을 때
@@ -46,6 +46,14 @@ $(document).ready(function(){
 		})
 		
 		$(".checkedNum").html(str);
-		alert(checkedNum);
+		//alert(checkedNum);
+	})
+	
+	$("#history").on("click",function(){
+		if(checkedNum.length==6){
+			location.href = "/lotto/compare?geBall1="+checkedNum[0]+"&geBall2="+checkedNum[1]+"&geBall3="+checkedNum[2]+"&geBall4="+checkedNum[3]+"&geBall5="+checkedNum[4]+"&geBall6="+checkedNum[5];
+		}else{
+			alert("6개의 번호를 선택해야 합니다");
+		}
 	})
 })

@@ -30,7 +30,8 @@
 		 		</c:when>
 		 	</c:choose>
 		 </c:forEach>	
-		<label>과거순위보기</label>
+		<!-- 과거순위 보기 -->
+		<button id="history">과거순위보기</button>
 	</div>
 
 		<!-- 이 밑에거는 반복되는 거니까 for문을 돌리자 --><!-- 	

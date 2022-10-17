@@ -41,7 +41,8 @@
 	</div>
 	<div>
 		<label>저장</label>
-		<label>과거순위보기</label>
+		<!-- 과거순위 보기 -->
+		<button id="history">과거순위보기</button>
 	</div>
 </body>
 </html>

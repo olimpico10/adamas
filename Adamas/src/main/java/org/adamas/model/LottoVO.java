@@ -38,6 +38,18 @@ public class LottoVO {
 	long fifthPrize;
 	// 5등 당첨인원	
 	int fifthWinner;
+	// 생성기로 생성 된 첫번째공
+	int geBall1;
+	// 생성기로 생성 된 두번째공
+	int geBall2;
+	// 생성기로 생성 된 세번째공
+	int geBall3;
+	// 생성기로 생성 된 네번째공
+	int geBall4;
+	// 생성기로 생성 된 다섯번째공
+	int geBall5;
+	// 생성기로 생성 된 여섯번째공
+	int geBall6;
 	
 	public int getLno() {
 		return lno;
@@ -147,6 +159,42 @@ public class LottoVO {
 	public void setFifthWinner(int fifthWinner) {
 		this.fifthWinner = fifthWinner;
 	}
+	public int getGeBall1() {
+		return geBall1;
+	}
+	public void setGeBall1(int geBall1) {
+		this.geBall1 = geBall1;
+	}
+	public int getGeBall2() {
+		return geBall2;
+	}
+	public void setGeBall2(int geBall2) {
+		this.geBall2 = geBall2;
+	}
+	public int getGeBall3() {
+		return geBall3;
+	}
+	public void setGeBall3(int geBall3) {
+		this.geBall3 = geBall3;
+	}
+	public int getGeBall4() {
+		return geBall4;
+	}
+	public void setGeBall4(int geBall4) {
+		this.geBall4 = geBall4;
+	}
+	public int getGeBall5() {
+		return geBall5;
+	}
+	public void setGeBall5(int geBall5) {
+		this.geBall5 = geBall5;
+	}
+	public int getGeBall6() {
+		return geBall6;
+	}
+	public void setGeBall6(int geBall6) {
+		this.geBall6 = geBall6;
+	}
 	
 	@Override
 	public String toString() {
@@ -155,7 +203,8 @@ public class LottoVO {
 				+ ", firstWinner=" + firstWinner + ", secondPrize=" + secondPrize + ", secondWinner=" + secondWinner
 				+ ", thirdPrize=" + thirdPrize + ", thirdWinner=" + thirdWinner + ", fourthPrize=" + fourthPrize
 				+ ", fourthWinner=" + fourthWinner + ", fifthPrize=" + fifthPrize + ", fifthWinner=" + fifthWinner
-				+ "]";
+				+ ", geBall1=" + geBall1 + ", geBall2=" + geBall2 + ", geBall3=" + geBall3 + ", geBall4=" + geBall4
+				+ ", geBall5=" + geBall5 + ", geBall6=" + geBall6 + "]";
 	}
 	
 }
