@@ -51,7 +51,9 @@ $(document).ready(function(){
 	
 	$("#history").on("click",function(){
 		if(checkedNum.length==6){
-			location.href = "/lotto/compare?geBall1="+checkedNum[0]+"&geBall2="+checkedNum[1]+"&geBall3="+checkedNum[2]+"&geBall4="+checkedNum[3]+"&geBall5="+checkedNum[4]+"&geBall6="+checkedNum[5];
+			this.href = "/lotto/compare?geBall1="+checkedNum[0]+"&geBall2="+checkedNum[1]+"&geBall3="+checkedNum[2]+"&geBall4="+checkedNum[3]+"&geBall5="+checkedNum[4]+"&geBall6="+checkedNum[5];
+			window.open(this.href, '_blank', 'width=800', 'height=auto');
+			return false;
 		}else{
 			alert("6개의 번호를 선택해야 합니다");
 		}

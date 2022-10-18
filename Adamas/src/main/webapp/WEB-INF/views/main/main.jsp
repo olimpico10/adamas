@@ -22,9 +22,6 @@
 	<!-- 랜덤 발생기 -->
 	<a href="/lotto/randomGenerator">랜덤발생기</a>
 	
-	<!-- 과거순위 보기 -->
-	<a href="/lotto/compare">과거순위보기</a>
-	
 	<!-- 번호분석 -->
 	<a href="/lotto/number">번호분석</a>
 	
