@@ -38,6 +38,8 @@ public class LottoVO {
 	long fifthPrize;
 	// 5등 당첨인원	
 	int fifthWinner;
+	// 비고
+	String remarks;
 	// 생성기로 생성 된 첫번째공
 	int geBall1;
 	// 생성기로 생성 된 두번째공
@@ -159,6 +161,12 @@ public class LottoVO {
 	public void setFifthWinner(int fifthWinner) {
 		this.fifthWinner = fifthWinner;
 	}
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 	public int getGeBall1() {
 		return geBall1;
 	}
@@ -203,8 +211,8 @@ public class LottoVO {
 				+ ", firstWinner=" + firstWinner + ", secondPrize=" + secondPrize + ", secondWinner=" + secondWinner
 				+ ", thirdPrize=" + thirdPrize + ", thirdWinner=" + thirdWinner + ", fourthPrize=" + fourthPrize
 				+ ", fourthWinner=" + fourthWinner + ", fifthPrize=" + fifthPrize + ", fifthWinner=" + fifthWinner
-				+ ", geBall1=" + geBall1 + ", geBall2=" + geBall2 + ", geBall3=" + geBall3 + ", geBall4=" + geBall4
-				+ ", geBall5=" + geBall5 + ", geBall6=" + geBall6 + "]";
+				+ ", remarks=" + remarks + ", geBall1=" + geBall1 + ", geBall2=" + geBall2 + ", geBall3=" + geBall3
+				+ ", geBall4=" + geBall4 + ", geBall5=" + geBall5 + ", geBall6=" + geBall6 + "]";
 	}
-	
+		
 }

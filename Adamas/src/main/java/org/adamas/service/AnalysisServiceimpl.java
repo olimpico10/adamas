@@ -17,4 +17,10 @@ public class AnalysisServiceimpl implements AnalysisService{
 		
 		return am.getResult();
 	}
+	
+	// 해당 당첨결과 리스트 추상메서드 구현
+	public ArrayList<LottoVO> thisResult(int lno){
+		
+		return am.thisResult(lno);
+	}
 }

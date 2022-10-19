@@ -6,4 +6,8 @@
 	<select id="getResult" resultType="org.adamas.model.LottoVO">
 		select * from lotto order by lno desc
 	</select>
+	
+	<select id="thisResult" resultType="org.adamas.model.LottoVO">
+		select * from lotto where lno=#{lno}
+	</select>
 </mapper>

@@ -8,4 +8,7 @@ public interface AnalysisMapper {
 
 	// 전체 당첨 결과 리스트 DB설계
 	public ArrayList<LottoVO> getResult();
+	
+	// 해당 당첨결과 리스트 DB설계
+	public ArrayList<LottoVO> thisResult(int lno);
 }
