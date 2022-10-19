@@ -3,6 +3,8 @@
  */
 
 $(document).ready(function(){
+	// 랜덤 + 고정수 번호를 저장할 배열
+	var lotto = [];
 	// 고정수 저장 할 배열
 	var fixedNum = [];
 	// 제외수 저장 할 배열
@@ -99,6 +101,7 @@ $(document).ready(function(){
 		var str = "";
 		fixedNum = [];
 		excludedNum = [];
+		lotto = [];
 		
 		//alert("초기화합니다");
 		
@@ -115,7 +118,8 @@ $(document).ready(function(){
 	$("#action").on("click",function(){
 		
 		// 랜덤 + 고정수 번호를 저장할 배열
-		var lotto = [];
+		//var lotto = [];
+		lotto = [];
 		//alert("번호 발생 전 로도번호"+lotto);
 		// 반복문을 위한 변수
 		var count = 0;
@@ -177,6 +181,16 @@ $(document).ready(function(){
 		
 		$("#lotto").html(str);
 		//alert("발생 수와 고정 수 합친 후 : "+lotto);
+	})
+	
+	$("#history").on("click",function(){
+		if(lotto.length==6){
+			this.href = "/lotto/compare?geBall1="+lotto[0]+"&geBall2="+lotto[1]+"&geBall3="+lotto[2]+"&geBall4="+lotto[3]+"&geBall5="+lotto[4]+"&geBall6="+lotto[5];
+			window.open(this.href, '_blank', 'width=800', 'height=auto');
+			return false;
+		}else{
+			alert("먼저 번호를 생성해야 합니다.");
+		}
 	})
 	
 })

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.adamas.mapper.LottoMapper">
+<mapper namespace="org.adamas.mapper.AnalysisMapper">
 
-	<select id="compare" resultType="org.adamas.model.LottoVO">
+	<select id="getResult" resultType="org.adamas.model.LottoVO">
 		select * from lotto order by lno desc
 	</select>
-	
 </mapper>

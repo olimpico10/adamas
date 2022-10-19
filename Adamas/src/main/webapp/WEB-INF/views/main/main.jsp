@@ -17,19 +17,22 @@
 	</div>
 
 	<!-- 번호생성기 -->
-	<a href="/lotto/generator">번호생성기</a>
+	<a href="/lotto/generator">직접생성(번호생성기)</a>
 	
 	<!-- 랜덤 발생기 -->
-	<a href="/lotto/randomGenerator">랜덤발생기</a>
+	<a href="/lotto/randomGenerator">랜덤생성(번호생성기)</a>
 	
 	<!-- 번호분석 -->
-	<a href="/lotto/number">번호분석</a>
+	<a href="/lotto/number">번호분석..구상만 해 놓음(번호분석)</a>
 	
 	<!-- 당첨 결과 -->
-	<a href="/winning">당첨결과</a>
+	<a href="/gameResult">당첨결과(번호분석)</a>
 	
 	<!-- 판매점 -->
-	<a href="/site">판매점</a>
+	<a href="/site">판매점찾기(로또판매점)</a>
+	
+	<!-- 판매점 -->
+	<a href="/site">당첨판매점(로또판매점)</a>
 	
 	<!-- 기타 -->
 	<a href="/board">커뮤니티</a>

@@ -4,7 +4,7 @@
 <mapper namespace="org.adamas.mapper.LottoMapper">
 
 	<select id="compare" resultType="org.adamas.model.LottoVO">
-		select * from lotto
+		select * from lotto order by lno desc
 	</select>
 	
 </mapper>
