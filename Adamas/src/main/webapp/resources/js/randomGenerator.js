@@ -13,6 +13,8 @@ $(document).ready(function(){
 	var fixedBtn = 0;
 	// 제외수 활성화 버튼 변수
 	var excludedBtn = 0;
+	// 로그인 한 ID 저장하는 변수
+	var loginId = $("#loginId").val();
 	
 	// 고정수 클릭 했을 때
 	$("#fixedBtn").on("click",function(){		
@@ -183,6 +185,19 @@ $(document).ready(function(){
 		//alert("발생 수와 고정 수 합친 후 : "+lotto);
 	})
 	
+	$("#storage").on("click",function(){
+		if(loginId == null || loginId == ""){
+			alert("로그인이 필요한 서비스입니다.");
+		} else{
+			if(lotto.length==6){
+				storage({myball1:lotto[0], myball2:lotto[1], myball3:lotto[2], myball4:lotto[3], myball5:lotto[4], myball6:lotto[5], id:loginId});
+			} else{
+				alert("6개의 번호를 선택해야 합니다");
+				return false;
+			}
+		}
+	})
+	
 	$("#history").on("click",function(){
 		if(lotto.length==6){
 			this.href = "/lotto/compare?geBall1="+lotto[0]+"&geBall2="+lotto[1]+"&geBall3="+lotto[2]+"&geBall4="+lotto[3]+"&geBall5="+lotto[4]+"&geBall6="+lotto[5];
@@ -192,5 +207,21 @@ $(document).ready(function(){
 			alert("먼저 번호를 생성해야 합니다.");
 		}
 	})
+	
+	// 발생 된 번호를 저장하기 위한 함수
+	function storage(myLotto){
+		
+		$.ajax({
+			type: "post",
+			url: "/lotto/Storage",
+			data: JSON.stringify(myLotto),
+			contentType: "application/json; charset=utf-8",
+			success: function(result){
+				if(result == "success"){
+					alert("저장했습니다");
+				}
+			}
+		})
+	}
 	
 })

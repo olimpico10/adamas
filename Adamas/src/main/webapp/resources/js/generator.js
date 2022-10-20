@@ -3,7 +3,12 @@
  */
 
 $(document).ready(function(){
+	// 선택 한 번호 저장할 배열
 	var checkedNum = [];
+	// 로그인 한 ID 저장하는 변수
+	var loginId = $("#loginId").val();
+	
+	//alert(loginId);
 	
 	// 번호 체크 변할 때
 	$(".chkNum").change(function(){
@@ -49,6 +54,19 @@ $(document).ready(function(){
 		//alert(checkedNum);
 	})
 	
+	$("#storage").on("click",function(){
+		if(loginId == null || loginId == ""){
+			alert("로그인이 필요한 서비스입니다.");
+		} else{
+			if(checkedNum.length==6){
+				storage({myball1:checkedNum[0], myball2:checkedNum[1], myball3:checkedNum[2], myball4:checkedNum[3], myball5:checkedNum[4], myball6:checkedNum[5], id:loginId});
+			} else{
+				alert("6개의 번호를 선택해야 합니다");
+				return false;
+			}
+		}
+	})
+	
 	$("#history").on("click",function(){
 		if(checkedNum.length==6){
 			this.href = "/lotto/compare?geBall1="+checkedNum[0]+"&geBall2="+checkedNum[1]+"&geBall3="+checkedNum[2]+"&geBall4="+checkedNum[3]+"&geBall5="+checkedNum[4]+"&geBall6="+checkedNum[5];
@@ -58,4 +76,20 @@ $(document).ready(function(){
 			alert("6개의 번호를 선택해야 합니다");
 		}
 	})
+	
+	// 발생 된 번호를 저장하기 위한 함수
+	function storage(myLotto){
+		
+		$.ajax({
+			type: "post",
+			url: "/lotto/Storage",
+			data: JSON.stringify(myLotto),
+			contentType: "application/json; charset=utf-8",
+			success: function(result){
+				if(result == "success"){
+					alert("저장했습니다");
+				}
+			}
+		})
+	}
 })

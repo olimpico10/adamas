@@ -14,11 +14,13 @@
 <body>
 	<h1>직접생성</h1>
 	<div class="checkedNum_wrap">
+		<input type="hidden" id="loginId" name="id" value="${login.id}" readonly><br>
 		<ul class="checkedNum"></ul><br>
+		<button type="button" id="reset">초기화</button>
+		<button type="button" id="storage">저장</button><br>
 	</div>
 	<div>
-		<button id="reset">초기화</button>
-		<button>저장</button><br>
+
 		 <c:forEach var="i" begin="1" end="45">
 		 	<input type="checkbox" class="chkNum" id="ball${i}" value="${i}"><label for="ball${i}"></label>
 		 	<c:choose>

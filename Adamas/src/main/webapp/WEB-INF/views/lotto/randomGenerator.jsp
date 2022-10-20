@@ -36,11 +36,12 @@
 		</c:forEach>
 	</div>
 	<div>
-		<button id="action">번호생성</button>
+		<input type="hidden" id="loginId" name="id" value="${login.id}" readonly><br>
+		<button type="button" id="action">번호생성</button>
 		<ul class="checkedNum" id="lotto"></ul><br>
 	</div>
 	<div>
-		<label>저장</label>
+		<button type="button" id="storage">저장</button>
 		<!-- 과거순위 보기 -->
 		<button id="history">과거순위보기</button>
 	</div>
