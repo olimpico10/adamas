@@ -24,6 +24,13 @@ public class AnalysisController {
 		return "analysis/gameResult";
 	}
 	
+	// 내 번호 당첨결과 페이지
+	@RequestMapping(value = "/myGameResult", method= RequestMethod.GET)
+	public String myGameResult() {
+		
+		return "analysis/myGameResult";
+	}
+	
 	// 당첨 결과 가져오는 페이지
 	@RequestMapping(value = "/analysis/getResult", method=RequestMethod.GET)
 	public ResponseEntity<ArrayList<LottoVO>> getResult(){
