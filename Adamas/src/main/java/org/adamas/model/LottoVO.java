@@ -1,57 +1,65 @@
 package org.adamas.model;
 
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class LottoVO {
 
 	// 회차
-	int lno;
+	private int lno;
 	// 첫번째공
-	int ball1;
+	private int ball1;
 	// 두번째공
-	int ball2;
+	private int ball2;
 	// 세번째공
-	int ball3;
+	private int ball3;
 	// 네번째공
-	int ball4;
+	private int ball4;
 	// 다섯번째공
-	int ball5;
+	private int ball5;
 	// 여섯번째공
-	int ball6;
+	private int ball6;
 	// 보너스공
-	int bonus;
+	private int bonus;
 	// 1등 상금
-	long firstPrize;
+	private long firstPrize;
 	// 1등 당첨인원
-	int firstWinner;
+	private int firstWinner;
 	// 2등 상금
-	long secondPrize;
+	private long secondPrize;
 	// 2등 당첨인원
-	int secondWinner;
+	private int secondWinner;
 	// 3등 상금
-	long thirdPrize;
+	private long thirdPrize;
 	// 3등 당첨인원
-	int thirdWinner;
+	private int thirdWinner;
 	// 4등 상금
-	long fourthPrize;
+	private long fourthPrize;
 	// 4등 당첨인원	
-	int fourthWinner;
+	private int fourthWinner;
 	// 5등 상금
-	long fifthPrize;
+	private long fifthPrize;
 	// 5등 당첨인원	
-	int fifthWinner;
+	private int fifthWinner;
 	// 비고
-	String remarks;
+	private String remarks;
+	// 로또 추첨일
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date lottoDay;
+	
 	// 생성기로 생성 된 첫번째공
-	int geBall1;
+	private int geBall1;
 	// 생성기로 생성 된 두번째공
-	int geBall2;
+	private int geBall2;
 	// 생성기로 생성 된 세번째공
-	int geBall3;
+	private int geBall3;
 	// 생성기로 생성 된 네번째공
-	int geBall4;
+	private int geBall4;
 	// 생성기로 생성 된 다섯번째공
-	int geBall5;
+	private int geBall5;
 	// 생성기로 생성 된 여섯번째공
-	int geBall6;
+	private int geBall6;
 	
 	public int getLno() {
 		return lno;
@@ -167,6 +175,12 @@ public class LottoVO {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
+	public Date getLottoDay() {
+		return lottoDay;
+	}
+	public void setLottoDay(Date lottoDay) {
+		this.lottoDay = lottoDay;
+	}
 	public int getGeBall1() {
 		return geBall1;
 	}
@@ -211,8 +225,9 @@ public class LottoVO {
 				+ ", firstWinner=" + firstWinner + ", secondPrize=" + secondPrize + ", secondWinner=" + secondWinner
 				+ ", thirdPrize=" + thirdPrize + ", thirdWinner=" + thirdWinner + ", fourthPrize=" + fourthPrize
 				+ ", fourthWinner=" + fourthWinner + ", fifthPrize=" + fifthPrize + ", fifthWinner=" + fifthWinner
-				+ ", remarks=" + remarks + ", geBall1=" + geBall1 + ", geBall2=" + geBall2 + ", geBall3=" + geBall3
-				+ ", geBall4=" + geBall4 + ", geBall5=" + geBall5 + ", geBall6=" + geBall6 + "]";
+				+ ", remarks=" + remarks + ", lottoDay=" + lottoDay + ", geBall1=" + geBall1 + ", geBall2=" + geBall2
+				+ ", geBall3=" + geBall3 + ", geBall4=" + geBall4 + ", geBall5=" + geBall5 + ", geBall6=" + geBall6
+				+ "]";
 	}
 		
 }

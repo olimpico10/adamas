@@ -3,21 +3,21 @@ package org.adamas.model;
 public class MylottoVO {
 
 	// mlno
-	int mlno;
+	private int mlno;
 	// 첫번째공
-	int myball1;
+	private int myball1;
 	// 두번째공
-	int myball2;
+	private int myball2;
 	// 세번째공
-	int myball3;
+	private int myball3;
 	// 네번째공
-	int myball4;
+	private int myball4;
 	// 다섯번째공
-	int myball5;
+	private int myball5;
 	// 여섯번째공
-	int myball6;
+	private int myball6;
 	// id
-	String id;
+	private String id;
 	
 	public int getMlno() {
 		return mlno;
