@@ -10,4 +10,5 @@
 	<select id="topStoreList" resultType="org.adamas.model.TopStoreVO">
 		select * from topstore
 	</select>
+	
 </mapper>
