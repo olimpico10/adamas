@@ -8,7 +8,14 @@
 	</select>
 	
 	<select id="topStoreList" resultType="org.adamas.model.TopStoreVO">
-		select * from topstore
+		select * from topstore where lno=#{lno}
 	</select>
 	
+	<select id="getMaxlno" resultType="int">
+		select max(lno) maxlno from lotto
+	</select>
+	
+	<select id="getlnoList" resultType="int">
+		select lno from lotto order by lno desc
+	</select>
 </mapper>

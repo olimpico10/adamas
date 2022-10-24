@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,10 +41,25 @@ public class StoreController {
 	}
 	
 	// 1등 당첨 판매점 리스트
-	@RequestMapping(value = "/store/topList", method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<TopStoreVO>> topStoreList(){
+	@RequestMapping(value = "/store/topList/{lno}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<TopStoreVO>> topStoreList(@PathVariable int lno){
+		System.out.println(lno);
 		
-		return new ResponseEntity<>(ss.topStoreList(), HttpStatus.OK);
+		return new ResponseEntity<>(ss.topStoreList(lno), HttpStatus.OK);
+	}
+	
+	// 최신회차를 알기 위한 페이지
+	@RequestMapping(value = "/store/getMaxlno", method=RequestMethod.GET)
+	public ResponseEntity<Integer> getMaxlno(){
+		
+		return new ResponseEntity<>(ss.getMaxlno(), HttpStatus.OK);
+	}
+	
+	// 전체회차를 표시하기 위한 페이지
+	@RequestMapping(value = "/store/getlnoList", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<Integer>> getlnoList(){
+		
+		return new ResponseEntity<>(ss.getlnoList(), HttpStatus.OK);
 	}
 	
 	// 판매점 위치 보기 페이지

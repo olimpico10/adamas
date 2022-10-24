@@ -10,7 +10,13 @@
 </head>
 <body>
 	<h1>당첨 판매점</h1>
-	
+	<div>
+		<label id="selectedlno">최신회차</label>
+	</div>
+	<div>
+		<ul class="selectlno">
+		</ul>
+	</div>
 	<div>
 		<ul class="storeList">
 		</ul>

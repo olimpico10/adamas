@@ -11,7 +11,8 @@ $(document).ready(function(){
 	$(".storeList").on("click", ".map", function(){
 		var location = $(this).data("location");
 		//alert(location);
-		var sname = $(this).data("sname");		
+		var sname = $(this).data("sname");
+		
 		this.href = "/store/map?location="+location+"&sname="+sname;
 		
 		window.open(this.href, '_blank', 'width=400', 'height=400');
@@ -27,7 +28,7 @@ $(document).ready(function(){
 				str += "<li data-location="+list[i].location+">"+list[i].sname+"</li>"
 				str += "<li data-location="+list[i].location+">"+list[i].phone+"</li>"
 				str += "<li data-location="+list[i].location+">"+list[i].location+"</li>"
-				str += "<li class='map' data-location='"+list[i].location+"' data-sname="+list[i].sname+">클릭</li>"
+				str += "<li class='map' data-location='"+list[i].location+"' data-sname='"+list[i].sname+"'>클릭</li>"
 			}
 			
 			$(".storeList").html(str);
