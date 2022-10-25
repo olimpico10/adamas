@@ -3,6 +3,7 @@ package org.adamas.controller;
 import java.util.ArrayList;
 
 import org.adamas.model.LottoVO;
+import org.adamas.model.MylottoVO;
 import org.adamas.service.AnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,13 +23,6 @@ public class AnalysisController {
 	public String gameResult() {
 		
 		return "analysis/gameResult";
-	}
-	
-	// 내 번호 당첨결과 페이지
-	@RequestMapping(value = "/myGameResult", method= RequestMethod.GET)
-	public String myGameResult() {
-		
-		return "analysis/myGameResult";
 	}
 	
 	// 당첨 결과 가져오는 페이지
@@ -51,5 +45,27 @@ public class AnalysisController {
 		System.out.println(lno);
 		
 		return new ResponseEntity<>(as.thisResult(lno),HttpStatus.OK);
+	}
+	
+	// 내 번호 당첨결과 페이지
+	@RequestMapping(value = "/myGameResult", method= RequestMethod.GET)
+	public String myGameResult() {
+		
+		return "analysis/myGameResult";
+	}
+	
+	// 내 저장 번호 불러오는 페이지
+	@RequestMapping(value = "/analysis/mylotto/{id}", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<MylottoVO>> mylotto(@PathVariable String id ){
+		System.out.println(id);
+		
+		return new ResponseEntity<>(as.mylotto(id), HttpStatus.OK);
+	}
+	
+	// 최근 1년이내 당첨번호 불러오는 페이지
+	@RequestMapping(value = "/analysis/getYearResult", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<LottoVO>> getYearResult(){
+		
+		return new ResponseEntity<>(as.getYearResult(),HttpStatus.OK);
 	}
 }

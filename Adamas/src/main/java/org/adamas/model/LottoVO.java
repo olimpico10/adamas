@@ -1,9 +1,5 @@
 package org.adamas.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class LottoVO {
 
 	// 회차
@@ -45,8 +41,7 @@ public class LottoVO {
 	// 비고
 	private String remarks;
 	// 로또 추첨일
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date lottoDay;
+	private String lottoDay;
 	
 	// 생성기로 생성 된 첫번째공
 	private int geBall1;
@@ -175,10 +170,10 @@ public class LottoVO {
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
 	}
-	public Date getLottoDay() {
+	public String getLottoDay() {
 		return lottoDay;
 	}
-	public void setLottoDay(Date lottoDay) {
+	public void setLottoDay(String lottoDay) {
 		this.lottoDay = lottoDay;
 	}
 	public int getGeBall1() {
@@ -229,5 +224,5 @@ public class LottoVO {
 				+ ", geBall3=" + geBall3 + ", geBall4=" + geBall4 + ", geBall5=" + geBall5 + ", geBall6=" + geBall6
 				+ "]";
 	}
-		
+			
 }

@@ -10,4 +10,15 @@
 	<select id="thisResult" resultType="org.adamas.model.LottoVO">
 		select * from lotto where lno=#{lno}
 	</select>
+	
+	<select id="mylotto" resultType="org.adamas.model.MylottoVO">
+		select * from mylotto where id=#{id} order by mlno desc
+	</select>
+	
+	<select id="getYearResult" resultType="org.adamas.model.LottoVO">
+		select * 
+		from lotto
+		where lottoday between date_add(now(), interval -1 month) and now()
+		order by lno desc
+	</select>
 </mapper>
