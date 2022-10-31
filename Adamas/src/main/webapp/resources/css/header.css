@@ -1,41 +1,42 @@
 @charset "UTF-8";
 
-/*header 전체*/
-.header{
-	display: flex;
-	justify-content: space-around;
-	min-width: 1200px;
-	width: 80%;
-	height: 100px;
-	padding: 20px;
-	background: #669900;
+/* header 전체*/
+.header_wrap{
+	flex-direction: row;
+	box-sizing: border-box;
+	min-width: 240px;
+	width: 15%;
+	height: 100vh;
+	padding: 10px;
+	background: #2F4F4F;
 }
 
-/*header logo*/
+/* logo 영역 */
 .logo_wrap{
-	width: 300px;
-	background: #33CCCC;
+	min-width:220px;
+	height: 10vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #008000;
 }
 
-/*header my*/
-.my_wrap{
-	width: 600px;
-	background: #66FFFF;
-}
-
-/*nav 전체*/
+/* 메뉴 영역 */
 .nav_wrap{
-	min-width: 1200px;
-	width: 100%;
-	height: 80px;
-	padding: 20px;
-	background: #336699;
-	
+	min-width:220px;
+	height: 85vh;
+	background: #808000;
 }
 
-/*nav adamasNav*/
-.adamasNav{
-	min-width: 1200px;
-	width: 80%;
-	background: #99CCFF;
+/* 메뉴 영역 > ul */
+.navUl{
+	margin-left: -30px;
 }
+
+/* 메뉴 영역 > ul> li */
+.navLi{
+	margin-top: 40px;
+	font-size: 18px;
+}
+
