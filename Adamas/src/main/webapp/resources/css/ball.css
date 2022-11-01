@@ -4,6 +4,12 @@
 	list-style: none;
 }
 
+.ballImg{
+	width: 110px;
+	height: 110px;
+	margin-left: 5px;	
+}
+
 .chkNum{
 	display: none;
 }

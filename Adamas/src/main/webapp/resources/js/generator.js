@@ -31,7 +31,7 @@ $(document).ready(function(){
 		// 내가 선택한 번호 화면에 표시하기 위한 반복문
 		for(var i=0; i<checkedNum.length; i++){
 			str += "<li>"
-			str += "<img src='/resources/images/ball"+parseInt(checkedNum[i])+".png'>"
+			str += "<img class='ballImg' src='/resources/images/ball"+parseInt(checkedNum[i])+".png'>"
 			str += "</li>"
 		}
 
