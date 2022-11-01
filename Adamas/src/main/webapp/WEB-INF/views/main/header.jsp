@@ -12,7 +12,7 @@
 <body>
 	<div class="header_wrap">
 		<div class="logo_wrap">
-			<h1>ADAMAS</h1>
+			<h1><a href="/">ADAMAS</a></h1>
 		</div>
 		<div class="nav_wrap">
 			<ul class="navUl">
