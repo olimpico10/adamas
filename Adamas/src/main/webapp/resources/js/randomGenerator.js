@@ -81,14 +81,14 @@ $(document).ready(function(){
 		// 내가 선택한 고정수 화면에 표시하기 위한 반복문
 		for(var i=0; i<fixedNum.length; i++){
 			fixedStr += "<li>"
-			fixedStr += "<img src='/resources/images/ball"+parseInt(fixedNum[i])+".png'>"
+			fixedStr += "<img class='fballImg' src='/resources/images/fball"+parseInt(fixedNum[i])+".png'>"
 			fixedStr += "</li>"
 		}
 		
 		// 내가 선택한 제외수 화면에 표시하기 위한 반복문
 		for(var i=0; i<excludedNum.length; i++){
 			excludedStr += "<li>"
-			excludedStr += "<img src='/resources/images/ball"+parseInt(excludedNum[i])+".png'>"
+			excludedStr += "<img class='eballImg' src='/resources/images/eball"+parseInt(excludedNum[i])+".png'>"
 			excludedStr += "</li>"
 		}
 		
@@ -177,7 +177,7 @@ $(document).ready(function(){
 		// 로또번호 화면에 표시하기 위한 반복문
 		for(var i=0; i<lotto.length; i++){
 			str += "<li>"
-			str += "<img src='/resources/images/ball"+parseInt(lotto[i])+".png'>"
+			str += "<img class='ballImg' src='/resources/images/ball"+parseInt(lotto[i])+".png'>"
 			str += "</li>"
 		}
 		
