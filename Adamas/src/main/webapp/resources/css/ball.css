@@ -34,7 +34,7 @@ input[class="chkNum"]+label{
 	margin-top: 5px;
 	background-repeat: no-repeat;
 	background-size: cover;
-	opacity: 0.2;
+	opacity: 0.1;
 }
 
 input[class="chkNum"]:checked+label{

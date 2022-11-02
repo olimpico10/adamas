@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+button{
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
 .chkBtn{
 	opacity: 0.2;
 }
