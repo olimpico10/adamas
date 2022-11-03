@@ -9,14 +9,34 @@
 <title>당첨결과</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/gameResult.js"></script>
+<link rel="stylesheet" href="/resources/css/common.css" >
+<link rel="stylesheet" href="/resources/css/gameResult.css" >
 </head>
 <body>
-	<h1>당첨결과</h1>
-	<div>
-		<ul class="thisResult">
-		</ul>
-		<ul class="totalResult">
-		</ul>
+	<div class="wrap">
+		<div class="leftContent_wrap">
+			<!-- 헤더 -->
+			<%@ include file="../main/header.jsp"%>		
+		</div>
+		<div class="rightContent_wrap">
+			<!-- myInfo -->
+			<%@ include file="../main/info.jsp"%>
+			
+			<div class="content">
+				<div class="content_title">
+					<h1>당첨번호 & 당첨금</h1>
+				</div>
+				<div class="content_thisResult">
+					<table class="thisResult">
+					</table>
+				</div>
+				<div class="content_totalResult">
+					<table class="totalResult">
+					</table>
+				</div>			
+			</div>
+		</div>
 	</div>
+
 </body>
 </html>
