@@ -4,7 +4,15 @@
 <mapper namespace="org.adamas.mapper.AnalysisMapper">
 
 	<select id="getResult" resultType="org.adamas.model.LottoVO">
-		select * from lotto order by lno desc
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, l.*
+			from lotto l, (select @rownum:=0) as tmp
+			order by lno desc
+		) as lottolist
+		<![CDATA[
+		where rownum> (#{param1}-1)*#{param2} and rownum <= #{param1}*#{param2}
+		]]>
 	</select>
 	
 	<select id="thisResult" resultType="org.adamas.model.LottoVO">
@@ -20,5 +28,9 @@
 		from lotto
 		where lottoday between date_add(now(), interval -1 month) and now()
 		order by lno desc
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) from lotto
 	</select>
 </mapper>

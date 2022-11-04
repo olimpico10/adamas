@@ -8,7 +8,7 @@ import org.adamas.model.MylottoVO;
 public interface AnalysisMapper {
 
 	// 전체 당첨 결과 리스트 DB설계
-	public ArrayList<LottoVO> getResult();
+	public ArrayList<LottoVO> getResult(int pageNum, int amount);
 	
 	// 해당 당첨결과 리스트 DB설계
 	public ArrayList<LottoVO> thisResult(int lno);
@@ -18,4 +18,7 @@ public interface AnalysisMapper {
 	
 	// 1년이내 당첨 결과 리스트 DB설계
 	public ArrayList<LottoVO> getYearResult();
+	
+	// 복권 총 회차 total DB설계
+	public int getTotal();
 }

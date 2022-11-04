@@ -14,9 +14,9 @@ public class AnalysisServiceimpl implements AnalysisService{
 	AnalysisMapper am;
 	
 	// 전체 당첨결과 리스트 추상메서드 구현
-	public ArrayList<LottoVO> getResult(){
+	public ArrayList<LottoVO> getResult(int pageNum, int amount){
 		
-		return am.getResult();
+		return am.getResult(pageNum, amount);
 	}
 	
 	// 해당 당첨결과 리스트 추상메서드 구현
@@ -35,5 +35,11 @@ public class AnalysisServiceimpl implements AnalysisService{
 	public ArrayList<LottoVO> getYearResult(){
 		
 		return am.getYearResult();
+	}
+	
+	// 복권 총 회차 total 추상메서드 구현
+	public int getTotal() {
+		
+		return am.getTotal();
 	}
 }

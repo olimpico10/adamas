@@ -26,17 +26,17 @@ public class AnalysisController {
 	}
 	
 	// 당첨 결과 가져오는 페이지
-	@RequestMapping(value = "/analysis/getResult", method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<LottoVO>> getResult(){
+	@RequestMapping(value = "/analysis/getResult/{pageNum}/{amount}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<LottoVO>> getResult(@PathVariable int pageNum, @PathVariable int amount){
 		
-		return new ResponseEntity<>(as.getResult(),HttpStatus.OK);
+		return new ResponseEntity<>(as.getResult(pageNum, amount),HttpStatus.OK);
 	}
 	
 	// 처음 화면에 노출되는 최신 당첨결과 불러오는 페이지
-	@RequestMapping(value = "/analysis/latestResult", method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<LottoVO>> latestResult(){
+	@RequestMapping(value = "/analysis/latestResult/{pageNum}/{amount}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<LottoVO>> latestResult(@PathVariable int pageNum, @PathVariable int amount){
 		
-		return new ResponseEntity<>(as.getResult(),HttpStatus.OK);
+		return new ResponseEntity<>(as.getResult(pageNum, amount),HttpStatus.OK);
 	}
 	
 	// 해당 당첨결과 가져오는 페이지
@@ -67,5 +67,12 @@ public class AnalysisController {
 	public ResponseEntity<ArrayList<LottoVO>> getYearResult(){
 		
 		return new ResponseEntity<>(as.getYearResult(),HttpStatus.OK);
+	}
+	
+	// getTotal
+	@RequestMapping(value = "/analysis/getTotal", method= RequestMethod.GET)
+	public ResponseEntity<Integer> getTotal(){
+		
+		return new ResponseEntity<>(as.getTotal(), HttpStatus.OK);
 	}
 }

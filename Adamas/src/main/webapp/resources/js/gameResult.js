@@ -4,21 +4,53 @@
 
 $(document).ready(function(){
 	$.ajaxSetup({async : false});
-	
-	latestResult();
-	getResult();
+	var total;
+	var pageNumValue = 1;
+	var amountValue = 10;
+	var startNum;
+	var endNum;
+	var realEnd;
+	var prev = false;
+	var next = false;
+		
+	latestResult(pageNumValue, amountValue);
+	getResult(pageNumValue, amountValue);
+	getTotal();
+	paging(pageNumValue, amountValue);
 	
 	// 전체 결과에서 클릭 했을 때
-	$(".totalResult").on("click", ".result_lno, .result_lottoDay, .result", function(){
+	$(".totalResult").on("click", ".result_lno, .result_lottoDay, .grBallImg, .result", function(){
 		// 해당회차의 번호를 수집하기 위해서
 		var lno = $(this).data("lno");
 		
 		thisResult(lno);
+		$('html').scrollTop(0);
+	})
+	
+	// 페이지 번호르 클릭 했을 때
+	$(".pagingArea").on("click", ".pageNumBtn", function(){
+		pageNumValue = parseInt($(this).text());
+		getResult(pageNumValue, amountValue);
+		paging(pageNumValue, amountValue);
+	})
+	
+	// 이전 버튼을 클릭 했을 때
+	$(".pagingArea").on("click", ".prevBtn", function(){
+		pageNumValue = startNum-1;
+		getResult(pageNumValue, amountValue);
+		paging(pageNumValue, amountValue);
+	})
+	
+	// 다음 버튼을 클릭 했을 때
+	$(".pagingArea").on("click", ".nextBtn", function(){
+		pageNumValue = endNum+1;
+		getResult(pageNumValue, amountValue);
+		paging(pageNumValue, amountValue);
 	})
 	
 	// 전체 당첨결과 불러오는 함수
-	function getResult(){
-		$.getJSON("/analysis/getResult.json", function(data){
+	function getResult(pageNum, amount){
+		$.getJSON("/analysis/getResult/"+pageNum+"/"+amount+".json", function(data){
 			
 			var str=""
 			
@@ -68,14 +100,14 @@ $(document).ready(function(){
 				str += "</tr>"
 				str += "<tr>"
 				str += "<td class='tableTBall'>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball1+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball2+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball3+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball4+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball5+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].ball6+"</span>"
-				str += "<span class='result' data-lno="+data[i].lno+"> + </span>"
-				str += "<span class='result' data-lno="+data[i].lno+">"+data[i].bonus+"</span>"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball1)+".png' data-lno="+data[i].lno+">"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball2)+".png' data-lno="+data[i].lno+">"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball3)+".png' data-lno="+data[i].lno+">"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball4)+".png' data-lno="+data[i].lno+">"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball5)+".png' data-lno="+data[i].lno+">"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].ball6)+".png' data-lno="+data[i].lno+">"
+				str += "<span class='grPlus' data-lno="+data[i].lno+"> + </span>"
+				str += "<img class='grBallImg' src='/resources/images/ball"+parseInt(data[i].bonus)+".png' data-lno="+data[i].lno+">"
 				str += "</td>"
 				str += "</tr>"
 				str += "<tr>"
@@ -91,13 +123,21 @@ $(document).ready(function(){
 	}
 	
 	// 처음 화면에 노출되는 최신 당첨결과 불러오는 함수
-	function latestResult(){
-		$.getJSON("/analysis/latestResult.json", function(data){
+	function latestResult(pageNum, amount){
+		$.getJSON("/analysis/latestResult/"+pageNum+"/"+amount+".json", function(data){
 			
 			var str=""
 
 			str += "<tr>"
-			str += "<td id='lnotd' colspan='3'><span id='tableLno'>"+data[0].lno+"회차 </span><span id='tableLottoday'> "+data[0].lottoDay+"</span></td>"
+			str += "<td id='lnotd' colspan='3'><span id='tableLno'>"+data[0].lno+"회차 </span><span id='tableLottoday'> "+data[0].lottoDay+" </span>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball1)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball2)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball3)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball4)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball5)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball6)+".png'>"
+			str += "<span id='trPlus'> + </span>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].bonus)+".png'></td>"
 			str += "</tr>"
 			str += "<tr>"
 			str += "<td class='tableRank'> 1등 </td>"
@@ -140,7 +180,15 @@ $(document).ready(function(){
 			var str=""
 
 			str += "<tr>"
-			str += "<td id='lnotd' colspan='3'><span id='tableLno'>"+data[0].lno+"회차 </span><span id='tableLottoday'> "+data[0].lottoDay+"</span></td>"
+			str += "<td id='lnotd' colspan='3'><span id='tableLno'>"+data[0].lno+"회차 </span><span id='tableLottoday'> "+data[0].lottoDay+" </span>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball1)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball2)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball3)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball4)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball5)+".png'>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].ball6)+".png'>"
+			str += "<span id='trPlus'> + </span>"
+			str += "<img class='trBallImg' src='/resources/images/ball"+parseInt(data[0].bonus)+".png'></td>"
 			str += "</tr>"
 			str += "<tr>"
 			str += "<td class='tableRank'> 1등 </td>"
@@ -175,4 +223,64 @@ $(document).ready(function(){
 			$(".thisResult").html(str);
 		})
 	}
+	
+	// paging을 위한 lno total 구하는 function
+	function getTotal(){
+		$.getJSON("/analysis/getTotal.json", function(count){
+			total = count;
+		})
+	}
+	
+	// total을 받아서 paging 하는 function
+	function paging(pageNum, amount){
+		var prevStr = "";
+		var numStr = "";
+		var nextStr = "";
+		var noData = "";
+		
+		endNum = Math.ceil(pageNum/10.0)*10;
+		startNum = endNum-9;
+		realEnd = Math.ceil(total*1.0/amount);
+		
+		if(realEnd < endNum){
+			endNum = realEnd;
+		}
+		
+		prev = startNum>1;
+		next = endNum<realEnd;
+		
+		if(prev){
+			var prevStr = "<li class='prevBtn'>이전</li>";
+		}
+		
+		for(var i=startNum; i<=endNum; i++){
+			if(i == pageNumValue){
+				numStr += "<li class='pageNumBtn' style='font-weight:bold; color:red;'>"+i+"</li>";
+			} else{
+				numStr += "<li class='pageNumBtn'>"+i+"</li>";
+			}
+		}
+		
+		if(next){
+			var nextStr = "<li class='nextBtn'>다음</li>";
+		}
+		
+		if(total <= 0){
+			noData += "<li>정보가 없습니다.</li>";
+		}
+		
+		$("#paging").html(prevStr + numStr + nextStr + noData);
+	}
 })
+
+
+
+
+
+
+
+
+
+
+
+

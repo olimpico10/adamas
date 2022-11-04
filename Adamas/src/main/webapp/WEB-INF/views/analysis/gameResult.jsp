@@ -33,6 +33,10 @@
 				<div class="content_totalResult">
 					<table class="totalResult">
 					</table>
+				</div>
+				<div class="pagingArea">
+					<ul id="paging">
+					</ul>
 				</div>			
 			</div>
 		</div>
