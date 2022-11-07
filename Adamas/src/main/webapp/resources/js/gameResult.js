@@ -19,7 +19,7 @@ $(document).ready(function(){
 	paging(pageNumValue, amountValue);
 	
 	// 전체 결과에서 클릭 했을 때
-	$(".totalResult").on("click", ".result_lno, .result_lottoDay, .grBallImg, .result", function(){
+	$(".totalResult").on("click", ".grBallImg", function(){
 		// 해당회차의 번호를 수집하기 위해서
 		var lno = $(this).data("lno");
 		

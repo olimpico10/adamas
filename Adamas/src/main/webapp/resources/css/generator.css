@@ -11,6 +11,7 @@
 	box-sizing: border-box;
 	min-width: 760px;
 	width: 90%;
+	min-height: 60px;
 	height: 10vh;
 	margin: auto;
 	display: flex;
@@ -23,6 +24,7 @@
 	box-sizing: border-box;
 	min-width: 760px;
 	width: 90%;
+	min-height: 299px;
 	height: 30vh;
 	margin: auto;
 }
@@ -31,6 +33,7 @@
 /* 오른쪽 영역 > content 영역 > content_checked 영역 > checkedNum_wrap영역 */
 .checkedNum_wrap{
 	min-width: 760px;
+	min-height: 249px;
 	height: 25vh;
 	display: flex;
 	justify-content: center;
@@ -40,6 +43,7 @@
 /* 오른쪽 영역 > content 영역 > content_checked 영역 > button_wrap 영역 */
 .button_wrap{
 	min-width: 760px;
+	min-height: 24px;
 	height: 5vh;
 	display: flex;
 	justify-content: center;
@@ -59,6 +63,7 @@
 .num_wrap{
 	min-width: 460px;
 	width: 460px;
+	min-height: 249px;
 	height: 25vh;
 	margin: auto;
 }
@@ -66,6 +71,7 @@
 /* 오른쪽 영역 > content 영역 > content_num 영역 > historyButton_wrap 영역 */
 .historyButton_wrap{
 	min-width: 760px;
+	min-height: 49px;
 	height: 5vh;
 	display: flex;
 	justify-content: center;
