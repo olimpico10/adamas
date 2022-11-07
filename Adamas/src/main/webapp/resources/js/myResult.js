@@ -29,6 +29,7 @@ $(document).ready(function(){
 		
 		// alert(lotto);
 		myResult()
+		$("html").scrollTop($(".content")[0].scrollHeight);
 	})
 	
 	// 저장 된 로또번호 불러오는 함수
@@ -36,15 +37,18 @@ $(document).ready(function(){
 		$.getJSON("/analysis/mylotto/"+id+".json", function(list){
 			var str = "";
 			
+			str += "<tr><td id='tdTitle' colspan='8'>내가 저장한 번호</td></tr>"
 			for(var i=0; i<list.length; i++){
-				str += "<li>"+list[i].myball1+"</li>"
-				str += "<li>"+list[i].myball2+"</li>"
-				str += "<li>"+list[i].myball3+"</li>"
-				str += "<li>"+list[i].myball4+"</li>"
-				str += "<li>"+list[i].myball5+"</li>"
-				str += "<li>"+list[i].myball6+"</li>"
-				str += "<li class='myball' data-myball1="+list[i].myball1+" data-myball2="+list[i].myball2+" data-myball3="+list[i].myball3+" data-myball4="+list[i].myball4+" data-myball5="+list[i].myball5+" data-myball6="+list[i].myball6+">선택</li>"
-				str += "<li>다음거</li>"
+				str += "<tr>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball1)+".png'></td>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball2)+".png'></td>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball3)+".png'></td>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball4)+".png'></td>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball5)+".png'></td>"
+				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball6)+".png'></td>"
+				str += "<td class='myball' data-myball1="+list[i].myball1+" data-myball2="+list[i].myball2+" data-myball3="+list[i].myball3+" data-myball4="+list[i].myball4+" data-myball5="+list[i].myball5+" data-myball6="+list[i].myball6+">선택</td>"
+				str += "<td>삭제</td>"
+				str += "</tr>"
 			}
 			
 			$(".mylotto").html(str);

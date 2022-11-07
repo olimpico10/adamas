@@ -26,7 +26,7 @@
 	<select id="getYearResult" resultType="org.adamas.model.LottoVO">
 		select * 
 		from lotto
-		where lottoday between date_add(now(), interval -1 month) and now()
+		where lottoday between date_add(now(), interval -1 year) and now()
 		order by lno desc
 	</select>
 	
