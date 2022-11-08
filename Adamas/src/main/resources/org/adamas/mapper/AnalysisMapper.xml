@@ -20,8 +20,22 @@
 	</select>
 	
 	<select id="mylotto" resultType="org.adamas.model.MylottoVO">
-		select * from mylotto where id=#{id} order by mlno desc
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, ml.*
+			from mylotto ml, (select @rownum:=0) as tmp
+			where id=#{param1}
+			order by mlno desc
+		) as mylottolist
+		<![CDATA[
+		where rownum> (#{param2}-1)*#{param3} and rownum <= #{param2}*#{param3}
+		]]>
 	</select>
+	
+	<delete id="mylottoRemove">
+		delete from mylotto
+		where mlno=#{mlno}
+	</delete>
 	
 	<select id="getYearResult" resultType="org.adamas.model.LottoVO">
 		select * 
@@ -32,5 +46,9 @@
 	
 	<select id="getTotal" resultType="int">
 		select count(*) from lotto
+	</select>
+	
+	<select id="getMylottoTotal" resultType="int">
+		select count(*) from mylotto where id=#{id}
 	</select>
 </mapper>

@@ -33,8 +33,10 @@
 						<table class="mylotto">
 						</table>
 					</div>
-					<div class="mylotto_paging">
-					</div>
+				</div>
+				<div class="mylotto_paging">
+					<ul id="myPaging">
+					</ul>
 				</div>
 				<!-- 선택 한 번호 결과확인 하는 -->
 				<div>

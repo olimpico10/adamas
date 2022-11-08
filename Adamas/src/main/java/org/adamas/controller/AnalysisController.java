@@ -55,24 +55,47 @@ public class AnalysisController {
 	}
 	
 	// 내 저장 번호 불러오는 페이지
-	@RequestMapping(value = "/analysis/mylotto/{id}", method= RequestMethod.GET)
-	public ResponseEntity<ArrayList<MylottoVO>> mylotto(@PathVariable String id ){
+	@RequestMapping(value = "/analysis/mylotto/{id}/{pageNum}/{amount}", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<MylottoVO>> mylotto(@PathVariable String id, @PathVariable int pageNum, @PathVariable int amount){
 		System.out.println(id);
+		System.out.println(pageNum);
+		System.out.println(amount);
 		
-		return new ResponseEntity<>(as.mylotto(id), HttpStatus.OK);
+		return new ResponseEntity<>(as.mylotto(id, pageNum, amount), HttpStatus.OK);
 	}
-	
+
+	// 내가 저장한 번호 삭제
+	@RequestMapping(value = "/analysis/mylottoRemove/{mlno}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> mylottoRemove(@PathVariable int mlno){
+		System.out.println("삭제: "+mlno);
+		
+		// delete가 성공했으면 result변수에 1저장
+		// delete가 실패했으면 result변수에 0저장
+		int result = as.mylottoRemove(mlno);
+		
+		return result==1? new ResponseEntity<>("success",HttpStatus.OK)
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
 	// 최근 1년이내 당첨번호 불러오는 페이지
 	@RequestMapping(value = "/analysis/getYearResult", method= RequestMethod.GET)
 	public ResponseEntity<ArrayList<LottoVO>> getYearResult(){
 		
 		return new ResponseEntity<>(as.getYearResult(),HttpStatus.OK);
 	}
-	
+		
 	// getTotal
 	@RequestMapping(value = "/analysis/getTotal", method= RequestMethod.GET)
 	public ResponseEntity<Integer> getTotal(){
 		
 		return new ResponseEntity<>(as.getTotal(), HttpStatus.OK);
+	}
+	
+	// getMylottoTotal
+	@RequestMapping(value = "/analysis/getMylottoTotal/{id}", method= RequestMethod.GET)
+	public ResponseEntity<Integer> getMylottoTotal(@PathVariable String id){
+		System.out.println(id);
+		
+		return new ResponseEntity<>(as.getMylottoTotal(id), HttpStatus.OK);
 	}
 }

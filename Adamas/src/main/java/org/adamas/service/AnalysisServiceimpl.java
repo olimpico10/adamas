@@ -26,9 +26,15 @@ public class AnalysisServiceimpl implements AnalysisService{
 	}
 	
 	// 내 저장 번호 리스트 추상메서드 구현
-	public ArrayList<MylottoVO> mylotto(String id){
+	public ArrayList<MylottoVO> mylotto(String id, int pageNum, int amount){
 		
-		return am.mylotto(id);
+		return am.mylotto(id, pageNum, amount);
+	}
+	
+	// // 내가 저장한 번호 삭제 추상메서드 구현
+	public int mylottoRemove(int mlno) {
+		
+		return am.mylottoRemove(mlno);
 	}
 	
 	// 1년이내 당첨결과 리스트 추상메서드 구현
@@ -41,5 +47,11 @@ public class AnalysisServiceimpl implements AnalysisService{
 	public int getTotal() {
 		
 		return am.getTotal();
+	}
+	
+	// 내가 저장한 번호  total 추상메서드 구현
+	public int getMylottoTotal(String id) {
+		
+		return am.getMylottoTotal(id);
 	}
 }

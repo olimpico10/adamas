@@ -6,13 +6,46 @@ $(document).ready(function(){
 	$.ajaxSetup({async : false});
 	// 로그인한 아이디 값을 저장하는 변수 
 	var loginId = $("#loginId").val();
-	// alert(loginId);
 	// 선택 된 로또번호를 저장하는 배열
 	var lotto = [];
+	// 내가 저장한 번호의 total 값을 저장하는 변수
+	var myTotal;
+	// pageNum
+	var myPageNumValue = 1;
+	// 한 페이지당 amount
+	var myAmountValue = 10;
+	var myStartNum;
+	var myEndNum;
+	var myRealEnd;
+	var myPrev = false;
+	var myNext = false;
 	
-	getMyLotto(loginId);
+	getMyLotto(loginId, myPageNumValue, myAmountValue);
+	getMylottoTotal(loginId);
+	myPaging(myPageNumValue, myAmountValue);
 	
-	// 선택을 클릭 했을 때
+	// 내가 저장한 번호 페이지 번호를 클릭 헀을 때
+	$("#myPaging").on("click", ".pageNumBtn", function(){
+		myPageNumValue = parseInt($(this).text());
+		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		myPaging(myPageNumValue, myAmountValue);
+	})
+	
+	// 내가 저장한 번호 이전 버튼을 클릭 헀을 때
+	$("#myPaging").on("click", ".prevBtn", function(){
+		myPageNumValue = myStartNum-1;
+		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		myPaging(myPageNumValue, myAmountValue);
+	})
+	
+	// 내가 저장한 번호 다음 버튼을 클릭 헀을 때
+	$("#myPaging").on("click", ".nextBtn", function(){
+		myPageNumValue = myEndNum+1;
+		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		myPaging(myPageNumValue, myAmountValue);
+	})
+	
+	// 내가 저장한 번호영역에서 선택을 클릭 했을 때
 	$(".mylotto").on("click", ".myball", function(){
 		$("#ball1").text($(this).data("myball1"));
 		lotto[0] = $(this).data("myball1")
@@ -32,12 +65,22 @@ $(document).ready(function(){
 		$("html").scrollTop($(".content")[0].scrollHeight);
 	})
 	
+	// 내가 저장한 번호영역에서 삭제를 클릭 했을 때
+	$(".mylotto").on("click", ".mydelete", function(){
+		var mlno = $(this).data("mlno");
+		
+		mylottoRemove(mlno);
+		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		getMylottoTotal(loginId);
+		myPaging(myPageNumValue, myAmountValue);
+	})
+	
 	// 저장 된 로또번호 불러오는 함수
-	function getMyLotto(id){
-		$.getJSON("/analysis/mylotto/"+id+".json", function(list){
+	function getMyLotto(id, pageNum, amount){
+		$.getJSON("/analysis/mylotto/"+id+"/"+pageNum+"/"+amount+".json", function(list){
 			var str = "";
 			
-			str += "<tr><td id='tdTitle' colspan='8'>내가 저장한 번호</td></tr>"
+			str += "<tr><td id='tdTitle' colspan='8' style='color:#BDBDBD'>내가 저장한 번호</td></tr>"
 			for(var i=0; i<list.length; i++){
 				str += "<tr>"
 				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball1)+".png'></td>"
@@ -46,8 +89,8 @@ $(document).ready(function(){
 				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball4)+".png'></td>"
 				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball5)+".png'></td>"
 				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball6)+".png'></td>"
-				str += "<td class='myball' data-myball1="+list[i].myball1+" data-myball2="+list[i].myball2+" data-myball3="+list[i].myball3+" data-myball4="+list[i].myball4+" data-myball5="+list[i].myball5+" data-myball6="+list[i].myball6+">선택</td>"
-				str += "<td>삭제</td>"
+				str += "<td class='myball' data-myball1="+list[i].myball1+" data-myball2="+list[i].myball2+" data-myball3="+list[i].myball3+" data-myball4="+list[i].myball4+" data-myball5="+list[i].myball5+" data-myball6="+list[i].myball6+"><button>선택</button></td>"
+				str += "<td class='mydelete' data-mlno="+list[i].mlno+"><button>삭제</button></td>"
 				str += "</tr>"
 			}
 			
@@ -165,6 +208,67 @@ $(document).ready(function(){
 			
 			$(".historyCompare").html(str);
 		})
+	}
+	
+	// 내가 저장한 번호 삭제를 하는 function
+	function mylottoRemove(mlno){
+		$.ajax({
+			type: "delete",
+			url: "/analysis/mylottoRemove/"+mlno,
+			success: function(result){
+				if(result == "success"){
+					alert("해당 번호 조합을 삭제했습니다");
+				}
+			}
+		})
+	}	
+	
+	// 내가 저장한 번호 total을 구하는 function
+	function getMylottoTotal(id){
+		$.getJSON("/analysis/getMylottoTotal/"+id+".json", function(count){
+			myTotal = count;
+		})
+	}
+	
+	// 내가 저장한 번호 total을 받아서  pagint 하는 function
+	function myPaging(pageNum, amount){
+		var prevStr = "";
+		var numStr = "";
+		var nextStr = "";
+		var noData = "";
+		
+		myEndNum = Math.ceil(pageNum/10.0)*10;
+		myStartNum = myEndNum-9;
+		myRealEnd = Math.ceil(myTotal*1.0/amount);
+		
+		if(myRealEnd < myEndNum){
+			myEndNum = myRealEnd;
+		}
+		
+		myPrev = myStartNum>1;
+		myNext = myEndNum<myRealEnd;
+		
+		if(myPrev){
+			var prevStr = "<li class='prevBtn'>이전</li>";
+		}
+		
+		for(var i=myStartNum; i<=myEndNum; i++){
+			if(i == myPageNumValue){
+				numStr += "<li class='pageNumBtn' style='font-weight:bold; color:red;'>"+i+"</li>";
+			} else{
+				numStr += "<li class='pageNumBtn'>"+i+"</li>";
+			}
+		}
+		
+		if(myNext){
+			var nextStr = "<li class='nextBtn'>다음</li>";
+		}
+		
+		if(myTotal <= 0){
+			noData += "<li>정보가 없습니다.</li>";
+		}
+		
+		$("#myPaging").html(prevStr + numStr + nextStr + noData);
 	}
 	
 })
