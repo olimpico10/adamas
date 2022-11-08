@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+label, button{
+	cursor: pointer;
+}
+
+button{
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
 /* 오른쪽 영역 > content 영역 */
 .content{
 	flex-direction: column;
