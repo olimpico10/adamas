@@ -20,47 +20,53 @@ $(document).ready(function(){
 	var myPrev = false;
 	var myNext = false;
 	
-	getMyLotto(loginId, myPageNumValue, myAmountValue);
+	getMylotto(loginId, myPageNumValue, myAmountValue);
 	getMylottoTotal(loginId);
 	myPaging(myPageNumValue, myAmountValue);
 	
 	// 내가 저장한 번호 페이지 번호를 클릭 헀을 때
 	$("#myPaging").on("click", ".pageNumBtn", function(){
 		myPageNumValue = parseInt($(this).text());
-		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		getMylotto(loginId, myPageNumValue, myAmountValue);
 		myPaging(myPageNumValue, myAmountValue);
 	})
 	
 	// 내가 저장한 번호 이전 버튼을 클릭 헀을 때
 	$("#myPaging").on("click", ".prevBtn", function(){
 		myPageNumValue = myStartNum-1;
-		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		getMylotto(loginId, myPageNumValue, myAmountValue);
 		myPaging(myPageNumValue, myAmountValue);
 	})
 	
 	// 내가 저장한 번호 다음 버튼을 클릭 헀을 때
 	$("#myPaging").on("click", ".nextBtn", function(){
 		myPageNumValue = myEndNum+1;
-		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		getMylotto(loginId, myPageNumValue, myAmountValue);
 		myPaging(myPageNumValue, myAmountValue);
 	})
 	
 	// 내가 저장한 번호영역에서 선택을 클릭 했을 때
 	$(".mylotto").on("click", ".myball", function(){
-		$("#ball1").text($(this).data("myball1"));
+		var str = "";
+		
+		str += "<tr>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball1'))+".png'></td>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball2'))+".png'></td>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball3'))+".png'></td>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball4'))+".png'></td>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball5'))+".png'></td>"
+		str += "<td><img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball6'))+".png'></td>"
+		str += "</tr>"
+		
+		$(".selected_ball").html(str);
+		
 		lotto[0] = $(this).data("myball1")
-		$("#ball2").text($(this).data("myball2"));
 		lotto[1] = $(this).data("myball2")
-		$("#ball3").text($(this).data("myball3"));
 		lotto[2] = $(this).data("myball3")
-		$("#ball4").text($(this).data("myball4"));
 		lotto[3] = $(this).data("myball4")
-		$("#ball5").text($(this).data("myball5"));
 		lotto[4] = $(this).data("myball5")
-		$("#ball6").text($(this).data("myball6"));
 		lotto[5] = $(this).data("myball6")
 		
-		// alert(lotto);
 		myResult()
 		$("html").scrollTop($(".content")[0].scrollHeight);
 	})
@@ -70,17 +76,17 @@ $(document).ready(function(){
 		var mlno = $(this).data("mlno");
 		
 		mylottoRemove(mlno);
-		getMyLotto(loginId, myPageNumValue, myAmountValue);
+		getMylotto(loginId, myPageNumValue, myAmountValue);
 		getMylottoTotal(loginId);
 		myPaging(myPageNumValue, myAmountValue);
 	})
 	
 	// 저장 된 로또번호 불러오는 함수
-	function getMyLotto(id, pageNum, amount){
+	function getMylotto(id, pageNum, amount){
 		$.getJSON("/analysis/mylotto/"+id+"/"+pageNum+"/"+amount+".json", function(list){
 			var str = "";
 			
-			str += "<tr><td id='tdTitle' colspan='8' style='color:#BDBDBD'>내가 저장한 번호</td></tr>"
+			str += "<tr><td id='tdTitle' colspan='8' style='color:#EAEAEA'>내가 저장한 번호</td></tr>"
 			for(var i=0; i<list.length; i++){
 				str += "<tr>"
 				str += "<td><img class='myBallImg' src='/resources/images/ball"+parseInt(list[i].myball1)+".png'></td>"
@@ -103,6 +109,15 @@ $(document).ready(function(){
 		$.getJSON("/analysis/getYearResult.json", function(list){
 			var str = "";
 			
+			str += "<tr>"
+			str += "<td>회차</td>"
+			str += "<td>일자</td>"
+			str += "<td>당첨번호</td>"
+			str += "<td>보너스번호</td>"
+			str += "<td>번호일치</td>"
+			str += "<td>등수</td>"
+			str += "</tr>"
+				
 			for(var i=0; i<list.length; i++){
 				// 번호 비교 후 일치 여부를 화면에 나타내기 위한 변수
 				var compareStr = "";
@@ -197,16 +212,17 @@ $(document).ready(function(){
 					console.log("낙첨");
 				}
 				
-				str += "<li>"+list[i].lno+"</li>"
-				str += "<li>"+list[i].lottoDay+"</li>"
-				str += "<li>"+compareStr+"</li>"
-				str += "<li>"+bonusStr+"</li>"
-				str += "<li>번호일치 : "+totalStr+"</li>"
-				str += "<li>등수 : "+rankStr+"</li>"
-				str += "------------------------------------------------------"
+				str += "<tr>"
+				str += "<td>"+list[i].lno+"</td>"
+				str += "<td>"+list[i].lottoDay+"</td>"
+				str += "<td>"+compareStr+"</td>"
+				str += "<td>"+bonusStr+"</td>"
+				str += "<td>"+totalStr+"</td>"
+				str += "<td>"+rankStr+"</td>"
+				str += "</tr>"
 			}
 			
-			$(".historyCompare").html(str);
+			$(".winning").html(str);
 		})
 	}
 	
@@ -230,7 +246,7 @@ $(document).ready(function(){
 		})
 	}
 	
-	// 내가 저장한 번호 total을 받아서  pagint 하는 function
+	// 내가 저장한 번호 total을 받아서  paging 하는 function
 	function myPaging(pageNum, amount){
 		var prevStr = "";
 		var numStr = "";

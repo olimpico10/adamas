@@ -28,7 +28,7 @@
 					<input type="hidden" id="loginId" value="${login.id}">
 				</div>
 				<!-- 내가 저장한 번호 불러오는 영역 -->
-				<div class="myLotto_wrap">
+				<div class="mylotto_wrap">
 					<div class="table_wrap">
 						<table class="mylotto">
 						</table>
@@ -38,25 +38,25 @@
 					<ul id="myPaging">
 					</ul>
 				</div>
+				<hr>
 				<!-- 선택 한 번호 결과확인 하는 -->
-				<div>
-					<p>로또 번호 당첨확인</p>
-					<p>위에 조합번호를 선택하시면 최근 1년 이내 당첨된 모든 결과를 알려드립니다.</p>
-					<table border="1">
-						<tr>
-							<td id="ball1">ball1</td>
-							<td id="ball2">ball2</td>
-							<td id="ball3">ball3</td>
-							<td id="ball4">ball4</td>
-							<td id="ball5">ball5</td>
-							<td id="ball6">ball6</td>
-						</tr>
-					</table>	
+				<div class="mylotto_winning">
+					<div>
+						<p>선택 번호 당첨확인</p>
+						<p>위에 조합번호를 선택하시면 최근 1년 이내 당첨된 모든 결과를 알려드립니다.</p>				
+					</div>
+					<div class="wtable_wrap">
+						<table class="selected_ball">
+						</table>
+						<table class="winning">
+						</table>
+					</div>
+					<div>
+						<ul class="historyCompare">
+						</ul>
+					</div>
 				</div>
-				<div>
-					<ul class="historyCompare">
-					</ul>
-				</div>
+
 			</div>
 		</div>
 	</div>

@@ -5,6 +5,12 @@ button{
 	cursor: pointer;
 }
 
+hr{
+	height: 10px;
+	box-shadow: 0 10px 10px -10px #bbb inset;
+}
+
+
 /* 오른쪽 영역 > content 영역 */
 .content{
 	flex-direction: column;
@@ -24,8 +30,8 @@ button{
 	align-items : center;
 }
 
-/* 오른쪽 영역 > content 영역 > myLotto_wrap 영역 */
-.myLotto_wrap{
+/* 오른쪽 영역 > content 영역 > mylotto_wrap 영역 */
+.mylotto_wrap{
 	box-sizing: border-box;
 	min-width: 700px;
 	width: 70%;
@@ -36,14 +42,14 @@ button{
 	background: #8C8C8C;
 }
 
-.myLotto_wrap > .table_wrap > table{
+.mylotto_wrap > .table_wrap > table{
 	width: 100%;
 	height: auto;
 	border-collapse: collapse;
 	border: solid black;
 }
 
-.myLotto_wrap td{
+.mylotto_wrap td{
 	padding-top: 5px;
 	border-bottom: solid black;
 	text-align: center;
@@ -60,6 +66,7 @@ button{
 	height: 45px;
 }
 
+/* 오른쪽 영역 > content 영역 > mylotto_paging 영역 */
 .mylotto_paging{
 	box-sizing: border-box;
 	min-width: 700px;
@@ -78,4 +85,44 @@ button{
 #myPaging li{
 	padding-left: 8px;
 	cursor: pointer;
+}
+
+/* 오른쪽 영역 > content 영역 > mylotto_winning 영역 */
+.mylotto_winning{
+	box-sizing: border-box;
+	min-width: 700px;
+	width: 70%;
+	height: auto;
+	margin: auto;
+	border: solid black;
+	border-radius: 10px;
+	background: #8C8C8C;
+}
+
+.mylotto_winning > .wtable_wrap > table{
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
+}
+
+.mylotto_winning td{
+	padding-top: 5px;
+	text-align: center;
+}
+
+.selected_ball{
+	background: #99004C;
+}
+
+.sBallImg{
+	width: 60px;
+	height: 60px;
+}
+
+.winning tr td{
+	border-bottom: 1px solid;
+}
+.winning tr:first-child td{
+	background: #626262;
+	border-bottom: 3px solid;
 }
