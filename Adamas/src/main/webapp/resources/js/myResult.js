@@ -66,7 +66,6 @@ $(document).ready(function(){
 	// 1년 이내 결과  페이지 번호를 클릭 헀을 때
 	$("#wPaging").on("click", ".pageNumBtn", function(){
 		yPageNumValue = parseInt($(this).text());
-		selectedBall(lotto);
 		myResult(yPageNumValue, yAmountValue)
 		yPaging(yPageNumValue, yAmountValue);
 	})
@@ -74,7 +73,6 @@ $(document).ready(function(){
 	// 1년 이내 결과 이전 버튼을 클릭 헀을 때
 	$("#wPaging").on("click", ".prevBtn", function(){
 		yPageNumValue = yStartNum-1;
-		selectedBall(lotto);
 		myResult(yPageNumValue, yAmountValue)
 		yPaging(yPageNumValue, yAmountValue);
 	})
@@ -82,43 +80,10 @@ $(document).ready(function(){
 	//  1년 이내 결과 다음 버튼을 클릭 헀을 때
 	$("#wPaging").on("click", ".nextBtn", function(){
 		yPageNumValue = yEndNum+1;
-		selectedBall(lotto);
 		myResult(yPageNumValue, yAmountValue)
 		yPaging(yPageNumValue, yAmountValue);
 	})
 
-	/*
-	// 내가 저장한 번호영역에서 선택을 클릭 했을 때
-	$(".mylotto").on("click", ".myball", function(){
-		var str = "";
-		yPageNumValue = 1;
-		
-		str += "<tr>"
-		str += "<td colspan='6'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball1'))+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball2'))+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball3'))+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball4'))+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball5'))+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt($(this).data('myball6'))+".png'>"
-		str += "</td>"
-		str += "</tr>"
-		
-		$(".winning").html(str);
-		
-		lotto[0] = $(this).data("myball1")
-		lotto[1] = $(this).data("myball2")
-		lotto[2] = $(this).data("myball3")
-		lotto[3] = $(this).data("myball4")
-		lotto[4] = $(this).data("myball5")
-		lotto[5] = $(this).data("myball6")
-		
-		myResult(yPageNumValue, yAmountValue)
-		$("html").scrollTop($(".content")[0].scrollHeight);
-		getYearTotal();
-		yPaging(yPageNumValue, yAmountValue);
-	})
-*/
 	// 내가 저장한 번호영역에서 선택을 클릭 했을 때
 	$(".mylotto").on("click", ".myball", function(){	
 		yPageNumValue = 1;
@@ -130,31 +95,11 @@ $(document).ready(function(){
 		lotto[4] = $(this).data("myball5")
 		lotto[5] = $(this).data("myball6")
 		
-		selectedBall(lotto);
-		
 		myResult(yPageNumValue, yAmountValue)
 		$("html").scrollTop($(".content")[0].scrollHeight);
 		getYearTotal();
 		yPaging(yPageNumValue, yAmountValue);
 	})
-	
-	// 내가 선택한 번호조합 테이블에 출력해주는 function
-	function selectedBall(arrLotto){
-		var str = "";
-		
-		str += "<tr>"
-		str += "<td colspan='6'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[0])+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[1])+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[2])+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[3])+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[4])+".png'>"
-		str += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[5])+".png'>"
-		str += "</td>"
-		str += "</tr>"
-			
-		$(".winning").html(str);		
-	}
 	
 	// 저장 된 로또번호 불러오는 함수
 	function getMylotto(id, pageNum, amount){
@@ -179,9 +124,29 @@ $(document).ready(function(){
 		})
 	}
 	
+	// 내가 선택한 번호조합 테이블에 출력해주는 function
+	function selectedBall(arrLotto){
+		var sStr = "";
+		
+		sStr += "<tr>"
+		sStr += "<td colspan='6'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[0])+".png'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[1])+".png'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[2])+".png'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[3])+".png'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[4])+".png'>"
+		sStr += "<img class='sBallImg' src='/resources/images/ball"+parseInt(lotto[5])+".png'>"
+		sStr += "</td>"
+		sStr += "</tr>"
+			
+		$(".winning").html(sStr);		
+	}
+	
 	// 최근 1년이내 로또번호와 내가 선택한 번호를 비교해주는 함수
 	function myResult(pageNum, amount){
 		$.getJSON("/analysis/getYearResult/"+pageNum+"/"+amount+".json", function(list){
+			selectedBall(lotto);
+			
 			var str = "";
 			
 			str += "<tr>"
