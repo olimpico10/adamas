@@ -87,6 +87,19 @@ hr{
 	cursor: pointer;
 }
 
+/* 오른쪽 영역 > content 영역 > content_title 영역 */
+.content_subTitle{
+	box-sizing: border-box;
+	min-width: 620px;
+	width: 620px;
+	min-height: 49px;
+	height: 5vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
 /* 오른쪽 영역 > content 영역 > mylotto_winning 영역 */
 .mylotto_winning{
 	box-sizing: border-box;
@@ -107,22 +120,74 @@ hr{
 
 .mylotto_winning td{
 	padding-top: 5px;
+	padding-bottom: 5px;
 	text-align: center;
-}
-
-.selected_ball{
-	background: #99004C;
 }
 
 .sBallImg{
 	width: 60px;
 	height: 60px;
+	padding-left: 20px; 
 }
 
 .winning tr td{
 	border-bottom: 1px solid;
 }
+
 .winning tr:first-child td{
+	color: white;
 	background: #626262;
-	border-bottom: 3px solid;
+	border-bottom: black;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(1){
+	width: 12%;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(2){
+	width: 17%;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(3){
+	width: 27%;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(4){
+	width: 17%;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(5){
+	width: 17%;
+}
+
+.winning > tr:nth-child(2) > td:nth-child(6){
+	width: 10%;
+}
+
+.winning tr:nth-child(2) td{
+	color: white;
+	background: #708090;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+/* 오른쪽 영역 > content 영역 > winning_paging 영역 */
+.winning_paging{
+	box-sizing: border-box;
+	min-width: 700px;
+	width: 70%;
+	min-height: 30px;
+	height: auto;
+	margin: auto;
+}
+
+#wPaging{
+	padding-left: 0;
+	display: flex;
+	justify-content: center;
+}
+
+#wPaging li{
+	padding-left: 8px;
+	cursor: pointer;
 }

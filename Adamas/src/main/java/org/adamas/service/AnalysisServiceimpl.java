@@ -38,9 +38,9 @@ public class AnalysisServiceimpl implements AnalysisService{
 	}
 	
 	// 1년이내 당첨결과 리스트 추상메서드 구현
-	public ArrayList<LottoVO> getYearResult(){
+	public ArrayList<LottoVO> getYearResult(int pageNum, int amount){
 		
-		return am.getYearResult();
+		return am.getYearResult(pageNum, amount);
 	}
 	
 	// 복권 총 회차 total 추상메서드 구현
@@ -53,5 +53,11 @@ public class AnalysisServiceimpl implements AnalysisService{
 	public int getMylottoTotal(String id) {
 		
 		return am.getMylottoTotal(id);
+	}
+	
+	// 1년 이내 당첨결과 total 추상메서드 구현
+	public int getYearTotal() {
+		
+		return am.getYearTotal();
 	}
 }

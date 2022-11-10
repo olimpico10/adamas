@@ -20,11 +20,14 @@ public interface AnalysisMapper {
 	public int mylottoRemove(int mlno);
 	
 	// 1년이내 당첨 결과 리스트 DB설계
-	public ArrayList<LottoVO> getYearResult();
+	public ArrayList<LottoVO> getYearResult(int pageNum, int amount);
 	
 	// 복권 총 회차 total DB설계
 	public int getTotal();
 	
 	// 내가 저장한 번호  total DB설계
 	public int getMylottoTotal(String id);
+	
+	// 1년 이내 당첨결과 total DB설계
+	public int getYearTotal();
 }

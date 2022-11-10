@@ -39,24 +39,23 @@
 					</ul>
 				</div>
 				<hr>
+				<div class="content_subTitle">
+					<h1>선택 번호조합 당첨확인</h1>
+				</div>
 				<!-- 선택 한 번호 결과확인 하는 -->
 				<div class="mylotto_winning">
-					<div>
-						<p>선택 번호 당첨확인</p>
-						<p>위에 조합번호를 선택하시면 최근 1년 이내 당첨된 모든 결과를 알려드립니다.</p>				
-					</div>
 					<div class="wtable_wrap">
-						<table class="selected_ball">
-						</table>
 						<table class="winning">
+							<tr>
+								<td>위에 조합번호를 선택하시면 최근 1년 이내 해당 조합번호의 모든 결과를 알려드립니다.</td>
+							</tr>
 						</table>
-					</div>
-					<div>
-						<ul class="historyCompare">
-						</ul>
 					</div>
 				</div>
-
+				<div class="winning_paging">
+					<ul id="wPaging">
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

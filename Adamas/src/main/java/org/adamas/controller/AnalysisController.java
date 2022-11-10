@@ -57,9 +57,9 @@ public class AnalysisController {
 	// 내 저장 번호 불러오는 페이지
 	@RequestMapping(value = "/analysis/mylotto/{id}/{pageNum}/{amount}", method= RequestMethod.GET)
 	public ResponseEntity<ArrayList<MylottoVO>> mylotto(@PathVariable String id, @PathVariable int pageNum, @PathVariable int amount){
-		System.out.println(id);
-		System.out.println(pageNum);
-		System.out.println(amount);
+		System.out.println("내가 저장한 번호 : "+id);
+		System.out.println("내가 저장한 번호 : "+pageNum);
+		System.out.println("내가 저장한 번호 : "+amount);
 		
 		return new ResponseEntity<>(as.mylotto(id, pageNum, amount), HttpStatus.OK);
 	}
@@ -78,10 +78,12 @@ public class AnalysisController {
 	}
 
 	// 최근 1년이내 당첨번호 불러오는 페이지
-	@RequestMapping(value = "/analysis/getYearResult", method= RequestMethod.GET)
-	public ResponseEntity<ArrayList<LottoVO>> getYearResult(){
+	@RequestMapping(value = "/analysis/getYearResult/{pageNum}/{amount}", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<LottoVO>> getYearResult(@PathVariable int pageNum, @PathVariable int amount){
+		System.out.println("1년이내 : "+pageNum);
+		System.out.println("1년이내 : "+amount);	
 		
-		return new ResponseEntity<>(as.getYearResult(),HttpStatus.OK);
+		return new ResponseEntity<>(as.getYearResult(pageNum, amount),HttpStatus.OK);
 	}
 		
 	// getTotal
@@ -97,5 +99,12 @@ public class AnalysisController {
 		System.out.println(id);
 		
 		return new ResponseEntity<>(as.getMylottoTotal(id), HttpStatus.OK);
+	}
+	
+	// getYearTotal
+	@RequestMapping(value = "/analysis/getYearTotal", method= RequestMethod.GET)
+	public ResponseEntity<Integer> getYearTotal(){
+		
+		return new ResponseEntity<>(as.getYearTotal(), HttpStatus.OK);
 	}
 }
