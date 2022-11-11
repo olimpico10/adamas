@@ -13,12 +13,26 @@ $(document).ready(function(){
 	getlnoList();
 	getStoreList(maxlno);
 	
+	// selectedlno를 클릭했을 때
+	$("#selectedlno").on("click", function(){
+		$(this).next("ul").toggle();
+		return false;
+	})
+
 	// 회차리스트 중 하나를 클릭 했을 때
 	$(".selectlno").on("click", ".lno", function(){
 		var lno = $(this).data("lno");
 		
+		$(".selectlno").css("display", "none");
 		$("#selectedlno").text(lno);
 		getStoreList(lno);
+	})
+
+	// 회차리스트를 펼쳤을 때 그 외의 영역을 클릭하는 경우
+	$("body").click(function(e){
+		if(!$(e.target).hasClass('lno')){
+			$(".selectlno").css("display", "none");
+		}
 	})
 	
 	// 판매점 리스트의 돋보기를 클릭 했을 때
@@ -37,11 +51,20 @@ $(document).ready(function(){
 		$.getJSON("/store/topList/"+lno+".json", function(list){
 			var str = "";
 			
+			str += "<tr>"
+			str += "<td>상호명</td>"
+			str += "<td>구분</td>"
+			str += "<td>소재지</td>"
+			str += "<td>위치보기</td>"
+			str += "</tr>"
+			
 			for(var i=0; i<list.length; i++){
-				str += "<li>"+list[i].sname+"</li>"
-				str += "<li>"+list[i].tsremarks+"</li>"
-				str += "<li>"+list[i].location+"</li>"
-				str += "<li class='map' data-location='"+list[i].location+"' data-sname='"+list[i].sname+"'>클릭</li>"
+				str += "<tr>"
+				str += "<td>"+list[i].sname+"</td>"
+				str += "<td>"+list[i].tsremarks+"</td>"
+				str += "<td>"+list[i].location+"</td>"
+				str += "<td class='map' data-location='"+list[i].location+"' data-sname='"+list[i].sname+"'><img src='/resources/images/pin.png'></td>"
+				str += "</tr>"
 			}
 			
 			$(".storeList").html(str);

@@ -12,10 +12,10 @@
 	</select>
 	
 	<select id="getMaxlno" resultType="int">
-		select max(lno) maxlno from lotto
+		select max(lno) maxlno from topstore
 	</select>
 	
 	<select id="getlnoList" resultType="int">
-		select lno from lotto order by lno desc
+		select lno from topstore group by lno order by lno desc
 	</select>
 </mapper>

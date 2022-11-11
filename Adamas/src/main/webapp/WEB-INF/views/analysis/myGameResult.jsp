@@ -24,7 +24,7 @@
 		
 			<div class="content">
 				<div class="content_title">
-					<h1>내 번호 당첨결과</h1>
+					<h1>번호조합</h1>
 					<input type="hidden" id="loginId" value="${login.id}">
 				</div>
 				<!-- 내가 저장한 번호 불러오는 영역 -->

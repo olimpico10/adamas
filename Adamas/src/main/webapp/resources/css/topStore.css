@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+/* 오른쪽 영역 > content 영역 */
+.content{
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+/* 오른쪽 영역 > content 영역 > content_title 영역 */
+.content_title{
+	box-sizing: border-box;
+	min-width: 620px;
+	width: 620px;
+	min-height: 49px;
+	height: 5vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > select_wrap 영역 */
+.select_wrap{
+	box-sizing: border-box;
+	min-width: 700px;
+	width: 70%;
+	height: auto;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#selectedlno{
+	border: 1px solid;
+	border-radius: 4px;
+	padding: 5px 10px;
+	background: #FFFAFA;
+}
+
+#selectedlno:after{
+	content: ' ▼';
+}
+
+.selectlno{
+	display: none;
+	border: 1px solid;
+	border-radius: 4px;
+	margin-top: 5px;
+	background: #FFFAFA;
+	position: absolute;
+	z-index: 100;
+}
+
+.lno{
+	padding: 5px 32px 5px 10px;
+	margin-left: -40px;
+	float: none;
+}
+
+.lno:hover{
+	background: #6495ED;
+}
+
+/* 오른쪽 영역 > content 영역 > storeList_wrap 영역 */
+.storeList_wrap{
+	box-sizing: border-box;
+	min-width: 700px;
+	width: 70%;
+	height: auto;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.storeList{
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;	
+	table-layout: fixed;
+}
+
+.storeList tr td {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+	padding: 7px 5px;
+	border-top: 1px solid black;
+}
+
+.storeList > tr:nth-child(1) > td{
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 10px;
+	background: #A9A9A9;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+.storeList > tr:nth-child(1) > td:nth-child(1){
+	width: 23%;
+}
+
+.storeList > tr:nth-child(1) > td:nth-child(2){
+	width: 8%;
+}
+
+.storeList > tr:nth-child(1) > td:nth-child(3){
+	width: 55%;
+}
+
+.storeList > tr:nth-child(1) > td:nth-child(4){
+	width: 14%;
+}
+
+.map > img{
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
