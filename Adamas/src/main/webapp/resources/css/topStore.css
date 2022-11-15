@@ -4,6 +4,7 @@
 .content{
 	flex-direction: column;
 	box-sizing: border-box;
+	padding-bottom: 10px;
 }
 
 /* 오른쪽 영역 > content 영역 > content_title 영역 */

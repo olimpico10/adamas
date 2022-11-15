@@ -37,13 +37,19 @@ $(document).ready(function(){
 	
 	// 판매점 리스트의 돋보기를 클릭 했을 때
 	$(".storeList").on("click", ".map", function(){
-		var location = $(this).data("location");
-		var sname = $(this).data("sname");
-		
-		this.href = "/store/map?location="+location+"&sname="+sname;
-		
-		window.open(this.href, '_blank', 'width=400', 'height=400');
-		return false;
+		if($(this).data("location") == "동행복권(dhlottery.co.kr)"){
+			this.href = "http://www.dhlottery.co.kr";
+			window.open(this.href, '_blank', 'width=400', 'height=400');
+			return false;
+		} else{
+			var location = $(this).data("location");
+			var sname = $(this).data("sname");
+			
+			this.href = "/store/map?location="+location+"&sname="+sname;
+			
+			window.open(this.href, '_blank', 'width=400', 'height=400');
+			return false;
+		}
 	})
 	
 	// 당첨 판매점 리스트 불러오는 함수
