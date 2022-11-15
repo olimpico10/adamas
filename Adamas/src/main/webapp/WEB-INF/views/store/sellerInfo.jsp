@@ -28,7 +28,7 @@
 				<div class="option_wrap">
 					<div id="region_wrap">
 						<div class="option1_title">
-							<h4>지역으로 검색</h4>
+							<h4><span style="color:#005766;">지역</span><span>으로 검색</span></h4>
 						</div>
 						<div class="option1_wrap">
 							<div id="option1_1_wrap">
