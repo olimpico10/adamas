@@ -27,10 +27,19 @@ public class StoreController {
 	}
 	
 	// 판매점 리스트
-	@RequestMapping(value = "/store/list", method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<StoreVO>> storeList(){
+	@RequestMapping(value = "/store/list/{pageNum}/{amount}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<StoreVO>> storeList(@PathVariable int pageNum, @PathVariable int amount){
+		System.out.println("점포 페이지번호 : "+pageNum);
+		System.out.println("점포 페이지당 갯수: "+amount);	
+
+		return new ResponseEntity<>(ss.storeList(pageNum, amount), HttpStatus.OK);
+	}
+	
+	// 판매점리스트 Total
+	@RequestMapping(value = "/store/getTotal", method= RequestMethod.GET)
+	public ResponseEntity<Integer> getTotal(){
 		
-		return new ResponseEntity<>(ss.storeList(), HttpStatus.OK);
+		return new ResponseEntity<>(ss.getTotal(), HttpStatus.OK);
 	}
 	
 	// 당첨 판매점 조회 페이지

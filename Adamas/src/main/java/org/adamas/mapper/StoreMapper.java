@@ -8,7 +8,10 @@ import org.adamas.model.TopStoreVO;
 public interface StoreMapper {
 
 	// 판매점 리스트 DB설계
-	public ArrayList<StoreVO> storeList();
+	public ArrayList<StoreVO> storeList(int pageNum, int amount);
+	
+	// 판매점리스트 Total DB설계
+	public int getTotal();
 	
 	// 1등 당첨 판매점 리스트 DB설계
 	public ArrayList<TopStoreVO> topStoreList(int lno);

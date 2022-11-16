@@ -80,6 +80,8 @@
 					</table>
 				</div>
 				<div class="paging_wrap">
+					<ul id="paging">
+					</ul>
 				</div>
 			</div>
 		</div>

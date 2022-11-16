@@ -252,3 +252,23 @@
 	height: 20px;
 	cursor: pointer;
 }
+
+/* 오른쪽 영역 > content 영역 > paging_wrap 영역 */
+.paging_wrap{
+	box-sizing: border-box;
+	min-width: 700px;
+	width: 70%;
+	min-height: 30px;
+	height: auto;
+	margin: auto;
+}
+
+#paging{
+	display: flex;
+	justify-content: center;
+}
+
+#paging li{
+	padding-left: 5px;
+	cursor: pointer;
+}
