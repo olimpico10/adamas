@@ -38,6 +38,10 @@ input[class="chkNum"]+label{
 	opacity: 0.1;
 }
 
+input[class="chkNum"]+label:hover{
+	opacity: 0.7;
+}
+
 input[class="chkNum"]:checked+label{
 	opacity: 1;
 }
