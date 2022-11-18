@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.adamas.mapper.StoreMapper">
+	
+	<select id="storeList" resultType="org.adamas.model.StoreVO">
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, s.*
+			from store s, (select @rownum:=0) as tmp
+			order by storeno asc
+		) as storelist
+		<![CDATA[
+		where rownum> (#{param1}-1)*#{param2} and rownum <= #{param1}*#{param2}
+		]]>
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) from store
+	</select>
+	
+	<select id="topStoreList" resultType="org.adamas.model.TopStoreVO">
+		select * from topstore where lno=#{lno}
+	</select>
+	
+	<select id="getMaxlno" resultType="int">
+		select max(lno) maxlno from topstore
+	</select>
+	
+	<select id="getlnoList" resultType="int">
+		select lno from topstore group by lno order by lno desc
+	</select>
+</mapper>

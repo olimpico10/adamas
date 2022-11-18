@@ -27,19 +27,21 @@ public class StoreController {
 	}
 	
 	// 판매점 리스트
-	@RequestMapping(value = "/store/list/{pageNum}/{amount}", method=RequestMethod.GET)
-	public ResponseEntity<ArrayList<StoreVO>> storeList(@PathVariable int pageNum, @PathVariable int amount){
+	@RequestMapping(value = "/store/list/{pageNum}/{amount}/{storeName}/{location}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<StoreVO>> storeList(@PathVariable int pageNum, @PathVariable int amount, @PathVariable String storeName, @PathVariable String location){
 		System.out.println("점포 페이지번호 : "+pageNum);
-		System.out.println("점포 페이지당 갯수: "+amount);	
+		System.out.println("점포 페이지당 갯수: "+amount);
+		System.out.println("상호명 검색 : "+storeName);
+		System.out.println("지역명 검색 : "+location);
 
-		return new ResponseEntity<>(ss.storeList(pageNum, amount), HttpStatus.OK);
+		return new ResponseEntity<>(ss.storeList(pageNum, amount, storeName, location), HttpStatus.OK);
 	}
 	
 	// 판매점리스트 Total
-	@RequestMapping(value = "/store/getTotal", method= RequestMethod.GET)
-	public ResponseEntity<Integer> getTotal(){
+	@RequestMapping(value = "/store/getTotal/{storeName}/{location}", method= RequestMethod.GET)
+	public ResponseEntity<Integer> getTotal(@PathVariable String storeName, @PathVariable String location){
 		
-		return new ResponseEntity<>(ss.getTotal(), HttpStatus.OK);
+		return new ResponseEntity<>(ss.getTotal(storeName, location), HttpStatus.OK);
 	}
 	
 	// 당첨 판매점 조회 페이지

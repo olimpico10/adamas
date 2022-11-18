@@ -5,6 +5,8 @@
 $(document).ready(function(){
 	$.ajaxSetup({async : false});
 	
+	var storeNameValue = "  ";
+	var locationValue = "울산 남구";
 	var total;
 	var pageNumValue = 1;
 	var amountValue = 10;
@@ -14,39 +16,73 @@ $(document).ready(function(){
 	var prev = false;
 	var next = false;	
 	
-	getStoreList(pageNumValue, amountValue);
-	getTotal();
+	getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
+	getTotal(storeNameValue, locationValue);
 	paging(pageNumValue, amountValue);
 
-	// option1_1를 클릭했을 때
+	// option1_1_title를 클릭했을 때
 	$("#option1_1_title").on("click", function(){
 		$(this).next("ul").toggle();
 		return false;		
 	})
-
-	// option1_2를 클릭했을 때
-	$("#option1_2_title").on("click", function(){
-		$(this).next("ul").toggle();
-		return false;		
-	})
 	
-	// option2를 클릭했을 때
-	$("#option2_1_title").on("click", function(){
-		$(this).next("ul").toggle();
-		return false;		
-	})
-
 	// 옵션 1-1를 펼쳤을 때 그 외의 영역을 클릭하는 경우
 	$("body, #option1_2_title, #option2_1_title").click(function(e){
 		if(!$(e.target).hasClass('option1_1')){
 			$("#option1_1").css("display", "none");
 		}
 	})
+
+	// option1_2_title를 클릭했을 때
+	$("#option1_2_title").on("click", function(){
+		$(this).next("ul").toggle();
+		return false;		
+	})
 	
 	// 옵션 1-2를 펼쳤을 때 그 외의 영역을 클릭하는 경우
 	$("body, #option1_1_title, #option2_1_title").click(function(e){
 		if(!$(e.target).hasClass('option1_2')){
 			$("#option1_2").css("display", "none");
+		}
+	})
+	
+	// option2_1_title를 클릭했을 때
+	$("#option2_1_title").on("click", function(){
+		$(this).next("ul").toggle();
+		return false;		
+	})
+	
+	// option2_1를 클릭했을 때
+	$(".option2_1").on("click", function(){
+		if($(this).data("option") == "storename"){
+			$("#option2").toggle();
+			$("#option2_1_title").text("상호");
+		} else if($(this).data("option") == "location"){
+			$("#option2").toggle();
+			$("#option2_1_title").text("지역");
+		}
+	})
+	
+	// option2_3_wrap 영역의 '조회' 버튼을 클릭했을 때
+	$("#option2_3_wrap").on("click", "button", function(){
+		if($("#option2_1_title").text()=="상호"){
+			storeNameValue = $("#searchWord").val();
+			locationValue = "  ";
+			pageNumValue = 1;
+			// alert("상호조회 : "+storeNameValue);
+			// alert("location변수 저장상황 : "+locationValue);
+			getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
+			getTotal(storeNameValue, locationValue);
+			paging(pageNumValue, amountValue);
+		} else if($("#option2_1_title").text()=="지역"){
+			locationValue = $("#searchWord").val();
+			storeNameValue = "  ";
+			pageNumValue = 1;
+			// alert("지역조회 : "+locationValue);
+			// alert("storeName변수 저장상황 : "+storeNameValue);
+			getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
+			getTotal(storeNameValue, locationValue);
+			paging(pageNumValue, amountValue);
 		}
 	})
 	
@@ -72,27 +108,29 @@ $(document).ready(function(){
 	// 페이지 번호르 클릭 했을 때
 	$(".paging_wrap").on("click", ".pageNumBtn", function(){
 		pageNumValue = parseInt($(this).text());
-		getStoreList(pageNumValue, amountValue);
+		getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
 		paging(pageNumValue, amountValue);
 	})
 	
 	// 이전 버튼을 클릭 했을 때
 	$(".paging_wrap").on("click", ".prevBtn", function(){
 		pageNumValue = startNum-1;
-		getStoreList(pageNumValue, amountValue);
+		getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
 		paging(pageNumValue, amountValue);
 	})
 	
 	// 다음 버튼을 클릭 했을 때
 	$(".paging_wrap").on("click", ".nextBtn", function(){
 		pageNumValue = endNum+1;
-		getStoreList(pageNumValue, amountValue);
+		getStoreList(pageNumValue, amountValue, storeNameValue, locationValue);
 		paging(pageNumValue, amountValue);
 	})
 	
 	// 판매점 리스트 불러오는 함수
-	function getStoreList(pageNum, amount){
-		$.getJSON("/store/list/"+pageNum+"/"+amount+".json", function(list){
+	function getStoreList(pageNum, amount, storeName, location){
+		console.log(storeName)
+		console.log(location)
+		$.getJSON("/store/list/"+pageNum+"/"+amount+"/"+storeName+"/"+location+".json", function(list){
 			var str="";
 			
 			str += "<tr>"
@@ -111,13 +149,19 @@ $(document).ready(function(){
 				str += "</tr>"
 			}
 			
+			if(list == ""){
+				str += "<tr>"
+				str += "<td colspan='4'>조회결과가 없습니다.</td>"
+				str += "</tr>"	
+			}
+			
 			$(".storeList").html(str);
 		})		
 	}
 	
 	// 판매점 리스트의 total을 구하는 function
-	function getTotal(){
-		$.getJSON("/store/getTotal.json", function(count){
+	function getTotal(storeName, location){
+		$.getJSON("/store/getTotal/"+storeName+"/"+location+".json", function(count){
 			total = count;
 			alert("판매점 총 수 : "+total);
 		})

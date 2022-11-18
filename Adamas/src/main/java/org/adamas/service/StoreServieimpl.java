@@ -14,15 +14,18 @@ public class StoreServieimpl implements StoreService {
 	StoreMapper sm;
 	
 	// 판매점 리스트 추상메서드 구현
-	public ArrayList<StoreVO> storeList(int pageNum, int amount){
-		
-		return sm.storeList(pageNum, amount);
+	public ArrayList<StoreVO> storeList(int pageNum, int amount, String storeName, String location){
+		System.out.println("pageNum="+pageNum);
+		System.out.println("amount="+amount);
+		System.out.println("storeName="+storeName);
+		System.out.println("location="+location);
+		return sm.storeList(pageNum, amount, storeName, location);
 	}
 
 	// 판매점리스트 Total 추상메서드 구현
-	public int getTotal() {
+	public int getTotal(String storeName, String location) {
 		
-		return sm.getTotal();
+		return sm.getTotal(storeName, location);
 	}
 	
 	// 1등 당첨 판매점 리스트 추상메서드 구현

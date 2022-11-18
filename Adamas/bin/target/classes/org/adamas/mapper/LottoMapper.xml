@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.adamas.mapper.LottoMapper">
+
+	<select id="compare" resultType="org.adamas.model.LottoVO">
+		select * from lotto order by lno desc
+	</select>
+	
+	<insert id="Storage">
+		insert into mylotto(myball1, myball2, myball3, myball4, myball5, myball6, id)
+		values(#{myball1}, #{myball2}, #{myball3}, #{myball4}, #{myball5}, #{myball6}, #{id})
+	</insert>
+	
+</mapper>

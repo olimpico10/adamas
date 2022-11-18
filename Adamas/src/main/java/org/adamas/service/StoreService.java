@@ -8,10 +8,10 @@ import org.adamas.model.TopStoreVO;
 public interface StoreService {
 
 	// 판매점 리스트 설계
-	public ArrayList<StoreVO> storeList(int pageNum, int amount);
+	public ArrayList<StoreVO> storeList(int pageNum, int amount, String storeName, String location);
 	
 	// 판매점리스트 Total 설계
-	public int getTotal();
+	public int getTotal(String storeName, String location);
 	
 	// 1등 당첨 판매점 리스트 설계
 	public ArrayList<TopStoreVO> topStoreList(int lno);

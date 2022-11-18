@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+label, button{
+	cursor: pointer;
+}
+
+button{
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
+.chkBtn{
+	opacity: 0.2;
+}
+
+/* 오른쪽 영역 > content 영역 */
+.content{
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+/* 오른쪽 영역 > content 영역 > content_title 영역 */
+.content_title{
+	box-sizing: border-box;
+	min-width: 620px;
+	width: 620px;
+	min-height: 49px;
+	height: 5vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > content_lotto 영역 */
+.content_lotto{
+	box-sizing: border-box;
+	min-width: 800px;
+	width: 70%;
+	min-height: 179px;
+	height: 18vh;
+	margin: auto;
+	border: solid black;
+	border-radius: 10px;
+}
+
+/* 오른쪽 영역 > content 영역 > content_lotto 영역 > lottoNum 영역 */
+.lottoNum{
+	min-width: 760px;
+	min-height: 139px;
+	height: 14vh;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > content_lotto 영역 > lottoNum_button 영역 */
+.lottoNum_button{
+	min-width: 760px;
+	min-height: 39px;
+	height: 4vh;
+	display: flex;
+	justify-content: center;
+	align-items : center;	
+}
+
+/* 오른쪽 영역 > content 영역 > content_num 영역*/
+.content_num{
+	box-sizing: border-box;
+	min-width: 460px;
+	width: 460px;
+	min-height: 249px;
+	height: 25vh;
+	margin: auto;
+}
+
+/* 오른쪽 영역 > content 영역 > button_wrap 영역 */
+.button_wrap{
+	min-width: 620px;
+	width: 620px;
+	min-height: 39px;
+	height: 4vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;	
+}
+
+#fixedBtn{
+	background: #10620A;
+}
+
+#excludedBtn{
+	background: #EDAF8C;
+}
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역 */
+.content_checked{
+	box-sizing: border-box;
+	min-width: 760px;
+	width: 90%;
+	min-height: 329px;
+	height: 33vh;
+	margin: auto;
+}
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역  > checkedFix 영역 */
+.checkedFix{
+	min-width: 400px;
+	width: 400px;
+	margin: auto;
+	min-height: 69px;
+	height: 7vh;
+}
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역 > checkedExclude 영역 */
+.checkedExclude{
+	min-width: 620px;
+	width: 620px;
+	min-height: 239px;
+	height: 24vh;
+	margin: auto;
+}

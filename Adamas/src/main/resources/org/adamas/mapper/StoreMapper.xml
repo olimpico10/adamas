@@ -2,21 +2,37 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.adamas.mapper.StoreMapper">
-	
+
 	<select id="storeList" resultType="org.adamas.model.StoreVO">
 		select *
 		from(
 			select @rownum:=@rownum+1 rownum, s.*
 			from store s, (select @rownum:=0) as tmp
-			order by storeno asc
+				<choose>
+					<when test="!storeName.equals('  ').toString()">
+						where sname like concat('%', #{storeName}, '%')
+					</when>
+					<otherwise>
+						where location like concat('%', #{location}, '%')
+					</otherwise>
+				</choose>
+			order by location asc
 		) as storelist
 		<![CDATA[
-		where rownum> (#{param1}-1)*#{param2} and rownum <= #{param1}*#{param2}
+		where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
 		]]>
 	</select>
 	
 	<select id="getTotal" resultType="int">
 		select count(*) from store
+			<choose>
+				<when test="!storeName.equals('  ').toString()">
+					where sname like concat('%', #{storeName}, '%')
+				</when>
+				<otherwise>
+					where location like concat('%', #{location}, '%')
+				</otherwise>
+			</choose>
 	</select>
 	
 	<select id="topStoreList" resultType="org.adamas.model.TopStoreVO">

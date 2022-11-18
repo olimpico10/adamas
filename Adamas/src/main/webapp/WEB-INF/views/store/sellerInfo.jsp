@@ -62,12 +62,12 @@
 							<div id="option2_1_wrap">
 								<span id="option2_1_title">상호</span>
 								<ul id="option2">
-									<li class="option2_1">상호</li>
-									<li class="option2_1">지역</li>
+									<li class="option2_1" data-option="storename">상호</li>
+									<li class="option2_1" data-option="location">지역</li>
 								</ul>
 							</div>
 							<div id="option2_2_wrap">
-								<input type="text" style="border:0 solid black;">
+								<input type="text" style="border:0 solid black;" id="searchWord">
 							</div>
 							<div id="option2_3_wrap">
 								<button type="button">조회</button>

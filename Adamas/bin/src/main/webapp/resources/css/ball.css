@@ -1,0 +1,227 @@
+@charset "UTF-8";
+
+.checkedNum{
+	list-style: none;
+}
+
+.ballImg{
+	width: 110px;
+	height: 110px;
+	padding-left: 5px;
+}
+
+.fballImg{
+	width: 60px;
+	height: 60px;
+	margin-top: 5px;
+	padding-left: 5px;
+}
+
+.eballImg{
+	width: 50px;
+	height: 50px;
+	margin-top: 5px;
+	padding-left: 5px;
+}
+
+.chkNum{
+	display: none;
+}
+
+input[class="chkNum"]+label{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin-top: 5px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.1;
+}
+
+input[class="chkNum"]+label:hover{
+	opacity: 0.7;
+}
+
+input[class="chkNum"]:checked+label{
+	opacity: 1;
+}
+
+input[id="ball1"]+label {
+	background-image: url("/resources/images/ball1.png");
+}
+
+input[id="ball2"]+label {
+	background-image: url("/resources/images/ball2.png");
+}
+
+input[id="ball3"]+label {
+	background-image: url("/resources/images/ball4.png");
+}
+
+input[id="ball4"]+label {
+	background-image: url("/resources/images/ball4.png");
+}
+
+input[id="ball5"]+label {
+	background-image: url("/resources/images/ball5.png");
+}
+
+input[id="ball6"]+label {
+	background-image: url("/resources/images/ball6.png");
+}
+
+input[id="ball7"]+label {
+	background-image: url("/resources/images/ball7.png");
+}
+
+input[id="ball8"]+label {
+	background-image: url("/resources/images/ball8.png");
+}
+
+input[id="ball9"]+label {
+	background-image: url("/resources/images/ball9.png");
+}
+
+input[id="ball10"]+label {
+	background-image: url("/resources/images/ball10.png");
+}
+
+input[id="ball11"]+label {
+	background-image: url("/resources/images/ball11.png");
+}
+
+input[id="ball12"]+label {
+	background-image: url("/resources/images/ball12.png");
+}
+
+input[id="ball13"]+label {
+	background-image: url("/resources/images/ball13.png");
+}
+
+input[id="ball14"]+label {
+	background-image: url("/resources/images/ball14.png");
+}
+
+input[id="ball15"]+label {
+	background-image: url("/resources/images/ball15.png");
+}
+
+input[id="ball16"]+label {
+	background-image: url("/resources/images/ball16.png");
+}
+
+input[id="ball17"]+label {
+	background-image: url("/resources/images/ball17.png");
+}
+
+input[id="ball18"]+label {
+	background-image: url("/resources/images/ball18.png");
+}
+
+input[id="ball19"]+label {
+	background-image: url("/resources/images/ball19.png");
+}
+
+input[id="ball20"]+label {
+	background-image: url("/resources/images/ball20.png");
+}
+
+input[id="ball21"]+label {
+	background-image: url("/resources/images/ball21.png");
+}
+
+input[id="ball22"]+label {
+	background-image: url("/resources/images/ball22.png");
+}
+
+input[id="ball23"]+label {
+	background-image: url("/resources/images/ball23.png");
+}
+
+input[id="ball24"]+label {
+	background-image: url("/resources/images/ball24.png");
+}
+
+input[id="ball25"]+label {
+	background-image: url("/resources/images/ball25.png");
+}
+
+input[id="ball26"]+label {
+	background-image: url("/resources/images/ball26.png");
+}
+
+input[id="ball27"]+label {
+	background-image: url("/resources/images/ball27.png");
+}
+
+input[id="ball28"]+label {
+	background-image: url("/resources/images/ball28.png");
+}
+
+input[id="ball29"]+label {
+	background-image: url("/resources/images/ball29.png");
+}
+
+input[id="ball30"]+label {
+	background-image: url("/resources/images/ball30.png");
+}
+
+input[id="ball31"]+label {
+	background-image: url("/resources/images/ball31.png");
+}
+
+input[id="ball32"]+label {
+	background-image: url("/resources/images/ball32.png");
+}
+
+input[id="ball33"]+label {
+	background-image: url("/resources/images/ball33.png");
+}
+
+input[id="ball34"]+label {
+	background-image: url("/resources/images/ball34.png");
+}
+
+input[id="ball35"]+label {
+	background-image: url("/resources/images/ball35.png");
+}
+
+input[id="ball36"]+label {
+	background-image: url("/resources/images/ball36.png");
+}
+
+input[id="ball37"]+label {
+	background-image: url("/resources/images/ball37.png");
+}
+
+input[id="ball38"]+label {
+	background-image: url("/resources/images/ball38.png");
+}
+
+input[id="ball39"]+label {
+	background-image: url("/resources/images/ball39.png");
+}
+
+input[id="ball40"]+label {
+	background-image: url("/resources/images/ball40.png");
+}
+
+input[id="ball41"]+label {
+	background-image: url("/resources/images/ball41.png");
+}
+
+input[id="ball42"]+label {
+	background-image: url("/resources/images/ball42.png");
+}
+
+input[id="ball43"]+label {
+	background-image: url("/resources/images/ball43.png");
+}
+
+input[id="ball44"]+label {
+	background-image: url("/resources/images/ball44.png");
+}
+
+input[id="ball45"]+label {
+	background-image: url("/resources/images/ball45.png");
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.adamas.mapper.AnalysisMapper">
+
+	<select id="getResult" resultType="org.adamas.model.LottoVO">
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, l.*
+			from lotto l, (select @rownum:=0) as tmp
+			order by lno desc
+		) as lottolist
+		<![CDATA[
+		where rownum> (#{param1}-1)*#{param2} and rownum <= #{param1}*#{param2}
+		]]>
+	</select>
+	
+	<select id="thisResult" resultType="org.adamas.model.LottoVO">
+		select * from lotto where lno=#{lno}
+	</select>
+	
+	<select id="mylotto" resultType="org.adamas.model.MylottoVO">
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, ml.*
+			from mylotto ml, (select @rownum:=0) as tmp
+			where id=#{param1}
+			order by mlno desc
+		) as mylottolist
+		<![CDATA[
+		where rownum> (#{param2}-1)*#{param3} and rownum <= #{param2}*#{param3}
+		]]>
+	</select>
+	
+	<delete id="mylottoRemove">
+		delete from mylotto
+		where mlno=#{mlno}
+	</delete>
+	
+	<select id="getYearResult" resultType="org.adamas.model.LottoVO">
+		select *
+		from(
+			select @rownum:=@rownum+1 rownum, l.* 
+			from lotto l, (select @rownum:=0) as tmp
+			where lottoday between date_add(now(), interval -1 year) and now()
+			order by lno desc
+		) as lottolist
+		<![CDATA[
+		where rownum> (#{param1}-1)*#{param2} and rownum <= #{param1}*#{param2}
+		]]>		
+	</select>
+	
+	<select id="getTotal" resultType="int">
+		select count(*) from lotto
+	</select>
+	
+	<select id="getMylottoTotal" resultType="int">
+		select count(*) from mylotto where id=#{id}
+	</select>
+	
+	<select id="getYearTotal" resultType="int">
+		select count(*)
+		from lotto
+		where lottoday between date_add(now(), interval -1 year) and now()
+	</select>
+</mapper>

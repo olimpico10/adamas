@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+label, button{
+	cursor: pointer;
+}
+
+button{
+	margin-left: 5px;
+	border-radius: 5px;
+}
+
+/* 오른쪽 영역 > content 영역 */
+.content{
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+/* 오른쪽 영역 > content 영역 > content_title 영역 */
+.content_title{
+	box-sizing: border-box;
+	min-width: 760px;
+	width: 90%;
+	min-height: 60px;
+	height: 10vh;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역 */
+.content_checked{
+	box-sizing: border-box;
+	min-width: 760px;
+	width: 90%;
+	min-height: 299px;
+	height: 30vh;
+	margin: auto;
+}
+
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역 > checkedNum_wrap영역 */
+.checkedNum_wrap{
+	min-width: 760px;
+	min-height: 249px;
+	height: 25vh;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > content_checked 영역 > button_wrap 영역 */
+.button_wrap{
+	min-width: 760px;
+	min-height: 24px;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items : center;	
+}
+
+/* 오른쪽 영역 > content 영역 > content_num 영역 */
+.content_num{
+	box-sizing: border-box;
+	min-width: 760px;
+	width: 90%;
+	height: 40vh;
+	margin: auto;
+}
+
+/* 오른쪽 영역 > content 영역 > content_num 영역 > num_wrap 영역 */
+.num_wrap{
+	min-width: 460px;
+	width: 460px;
+	min-height: 249px;
+	height: 25vh;
+	margin: auto;
+}
+
+/* 오른쪽 영역 > content 영역 > content_num 영역 > historyButton_wrap 영역 */
+.historyButton_wrap{
+	min-width: 760px;
+	min-height: 49px;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items : center;	
+}

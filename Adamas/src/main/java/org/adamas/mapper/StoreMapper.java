@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 import org.adamas.model.StoreVO;
 import org.adamas.model.TopStoreVO;
+import org.apache.ibatis.annotations.Param;
 
 public interface StoreMapper {
 
 	// 판매점 리스트 DB설계
-	public ArrayList<StoreVO> storeList(int pageNum, int amount);
+	public ArrayList<StoreVO> storeList(@Param("pageNum")int pageNum, @Param("amount")int amount, @Param("storeName")String storeName, @Param("location")String location);
 	
 	// 판매점리스트 Total DB설계
-	public int getTotal();
+	public int getTotal(@Param("storeName")String storeName, @Param("location")String location);
 	
 	// 1등 당첨 판매점 리스트 DB설계
 	public ArrayList<TopStoreVO> topStoreList(int lno);
