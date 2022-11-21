@@ -1,6 +1,8 @@
 package org.adamas.controller;
 
 import org.adamas.model.BoardVO;
+import org.adamas.model.CriteriaVO;
+import org.adamas.model.PageVO;
 import org.adamas.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,8 +33,11 @@ public class BoardController {
 	
 	// 글목록 페이지
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public String list(Model model) {
-		model.addAttribute("list", bs.list());
+	public String list(Model model, CriteriaVO cri) {
+		model.addAttribute("list", bs.list(cri));
+		
+		int total = bs.total();
+		model.addAttribute("paging", new PageVO(cri, total));
 		
 		return "board/list";
 	}

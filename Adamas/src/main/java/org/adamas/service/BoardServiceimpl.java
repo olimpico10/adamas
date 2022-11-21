@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.adamas.mapper.BoardMapper;
 import org.adamas.model.BoardVO;
+import org.adamas.model.CriteriaVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,15 @@ public class BoardServiceimpl implements BoardService {
 	}
 	
 	// 설계되어진 list 추상메서드 구현
-	public ArrayList<BoardVO> list(){
+	public ArrayList<BoardVO> list(CriteriaVO cri){
 		
-		return bm.list();
+		return bm.list(cri);
+	}
+	
+	// 글 전체건수 추상메서드 구현
+	public int total() {
+		
+		return bm.total();
 	}
 	
 	// 글 상세 페이지 추상메서드 구현

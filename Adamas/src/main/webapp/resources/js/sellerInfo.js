@@ -231,6 +231,7 @@ $(document).ready(function(){
 				numStr += "<li class='pageNumBtn' style='font-weight:bold; color:red;'>"+i+"</li>";
 			} else{
 				numStr += "<li class='pageNumBtn'>"+i+"</li>";
+				// numStr += `<li class='pageNumBtn'>${i}</li>`;
 			}
 		}
 		

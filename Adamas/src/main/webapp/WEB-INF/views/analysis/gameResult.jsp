@@ -37,7 +37,7 @@
 				<div class="pagingArea">
 					<ul id="paging">
 					</ul>
-				</div>			
+				</div>
 			</div>
 		</div>
 	</div>
