@@ -35,6 +35,20 @@
 			</choose>
 	</select>
 	
+	<select id="getSIDO" resultType="org.adamas.model.AddrVO">
+		select * from addr group by city
+	</select>
+	
+	<select id="getGUGUN" resultType="org.adamas.model.AddrVO">
+		select * 
+		from( 
+			select *
+		    from addr
+		    where city=#{sido}
+			) as c
+		group by region
+	</select>
+	
 	<select id="topStoreList" resultType="org.adamas.model.TopStoreVO">
 		select * from topstore where lno=#{lno}
 	</select>

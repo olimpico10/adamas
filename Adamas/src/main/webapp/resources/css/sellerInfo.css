@@ -18,7 +18,6 @@
 	display: flex;
 	justify-content: center;
 	align-items : center;
-	background: #008299;
 }
 
 /* 오른쪽 영역 > content 영역 > option_wrap 영역 */
@@ -31,7 +30,6 @@
 	margin-top: 20px;
 	display: flex;
 	justify-content: space-around;
-	background: yellow;
 }
 
 /* 오른쪽 영역 > content 영역 > option_wrap 영역 > region_wrap영역 */
@@ -70,6 +68,7 @@
 }
 
 #option1_1{
+	width: 80px;
 	display: none;
 	border: 1px solid;
 	border-radius: 4px;
@@ -81,8 +80,12 @@
 
 #option1_1 > li{
 	padding: 5px 28px 5px 10px;
-	margin-left: -46px;
+	margin-left: -40px;
 	float: none;
+}
+
+#option1_1 > li:hover {
+	background: #6495ED;
 }
 
 #option1_2_wrap{
@@ -96,6 +99,7 @@
 }
 
 #option1_2{
+	width: 80px;
 	display: none;
 	border: 1px solid;
 	border-radius: 4px;
@@ -107,8 +111,12 @@
 
 #option1_2 > li{
 	padding: 5px 28px 5px 10px;
-	margin-left: -46px;
+	margin-left: -40px;
 	float: none;
+}
+
+#option1_2 > li:hover {
+	background: #6495ED;
 }
 
 #option1_3_wrap{
@@ -169,8 +177,12 @@
 
 #option2 > li{
 	padding: 5px 28px 5px 10px;
-	margin-left: -46px;
+	margin-left: -40px;
 	float: none;
+}
+
+#option2 > li:hover {
+	background: #6495ED;
 }
 
 #option2_2_wrap{
@@ -203,7 +215,6 @@
 	height: auto;
 	margin: auto;
 	margin-top: 20px;
-	background: #008299;
 }
 
 .storeList{

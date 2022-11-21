@@ -2,6 +2,7 @@ package org.adamas.controller;
 
 import java.util.ArrayList;
 
+import org.adamas.model.AddrVO;
 import org.adamas.model.StoreVO;
 import org.adamas.model.TopStoreVO;
 import org.adamas.service.StoreService;
@@ -42,6 +43,20 @@ public class StoreController {
 	public ResponseEntity<Integer> getTotal(@PathVariable String storeName, @PathVariable String location){
 		
 		return new ResponseEntity<>(ss.getTotal(storeName, location), HttpStatus.OK);
+	}
+	
+	// 시/도 리스트 페이지
+	@RequestMapping(value = "/store/sido", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<AddrVO>> getSIDO(){
+		
+		return new ResponseEntity<>(ss.getSIDO(), HttpStatus.OK);
+	}
+	
+	// 구/군 리스트 페이지
+	@RequestMapping(value = "/store/gugun/{sido}", method= RequestMethod.GET)
+	public ResponseEntity<ArrayList<AddrVO>> getGUGUN(@PathVariable String sido){
+		
+		return new ResponseEntity<>(ss.getGUGUN(sido), HttpStatus.OK);
 	}
 	
 	// 당첨 판매점 조회 페이지

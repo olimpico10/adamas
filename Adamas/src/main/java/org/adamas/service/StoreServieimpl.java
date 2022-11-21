@@ -3,6 +3,7 @@ package org.adamas.service;
 import java.util.ArrayList;
 
 import org.adamas.mapper.StoreMapper;
+import org.adamas.model.AddrVO;
 import org.adamas.model.StoreVO;
 import org.adamas.model.TopStoreVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,18 @@ public class StoreServieimpl implements StoreService {
 	public int getTotal(String storeName, String location) {
 		
 		return sm.getTotal(storeName, location);
+	}
+	
+	// 시/도 리스트 추상메서드 구현
+	public ArrayList<AddrVO> getSIDO(){
+		
+		return sm.getSIDO();
+	}
+	
+	//  구/군 리스트 추상메서드 구현
+	public ArrayList<AddrVO> getGUGUN(String sido){
+		
+		return sm.getGUGUN(sido);
 	}
 	
 	// 1등 당첨 판매점 리스트 추상메서드 구현

@@ -32,21 +32,13 @@
 						</div>
 						<div class="option1_wrap">
 							<div id="option1_1_wrap">
-								<span id="option1_1_title">시/도 선택</span>
+								<span id="option1_1_title">울산</span>
 								<ul id="option1_1">
-									<li class="option1_1">임시</li>
-									<li class="option1_1">임시</li>
-									<li class="option1_1">임시</li>
-									<li class="option1_1">임시</li>
 								</ul>
 							</div>
 							<div id="option1_2_wrap">
-								<span id="option1_2_title">구/군 선택</span>
+								<span id="option1_2_title">남구</span>
 								<ul id="option1_2">
-									<li class="option1_2">임시</li>
-									<li class="option1_2">임시</li>
-									<li class="option1_2">임시</li>
-									<li class="option1_2">임시</li>
 								</ul>							
 							</div>
 							<div id="option1_3_wrap">

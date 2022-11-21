@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>리스트 페이지</title>
+<link rel="stylesheet" href="/resources/css/common.css" >
+<link rel="stylesheet" href="/resources/css/list.css" >
 </head>
 <body>
 	
