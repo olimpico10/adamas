@@ -23,9 +23,9 @@
 			
 			<div class="content">
 				<div class="topBtns">
-					<button class="btn_prev">▲ 이전글</button>
-					<button class="btn_next">▼ 다음글</button>
-					<button class="btn_list">목록</button>
+					<button type="button" class="btn_prev">▲ 이전글</button>
+					<button type="button" class="btn_next">▼ 다음글</button>
+					<a href="/board/list"><button type="button" class="btn_list">목록</button></a>
 				</div>
 				<div class="contentBox">
 					<form method="post">
@@ -55,8 +55,8 @@
 					</form>
 				</div>
 				<div class="bottomBtns">
-					<button>목록</button>
-					<button id="toTheTop">▲top</button>
+					<button type="button">목록</button>
+					<button type="button" id="toTheTop">▲top</button>
 				</div>
 		
 			</div>
