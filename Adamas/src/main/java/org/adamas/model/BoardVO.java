@@ -18,6 +18,10 @@ public class BoardVO {
 	private String regdate;
 	// 조회수
 	private int cnt;
+	// 이전게시글 번호
+	private String last_bno;
+	// 다음게시글 번호
+	private String next_bno;
 	
 	public int getBno() {
 		return bno;
@@ -67,11 +71,24 @@ public class BoardVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	public String getLast_bno() {
+		return last_bno;
+	}
+	public void setLast_bno(String last_bno) {
+		this.last_bno = last_bno;
+	}
+	public String getNext_bno() {
+		return next_bno;
+	}
+	public void setNext_bno(String next_bno) {
+		this.next_bno = next_bno;
+	}
 	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", id=" + id + ", nick=" + nick + ", category=" + category + ", title=" + title
-				+ ", content=" + content + ", regdate=" + regdate + ", cnt=" + cnt + "]";
+				+ ", content=" + content + ", regdate=" + regdate + ", cnt=" + cnt + ", last_bno=" + last_bno
+				+ ", next_bno=" + next_bno + "]";
 	}
 	
 }

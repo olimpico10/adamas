@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -23,8 +24,12 @@
 			
 			<div class="content">
 				<div class="topBtns">
-					<button type="button" class="btn_prev">▲ 이전글</button>
-					<button type="button" class="btn_next">▼ 다음글</button>
+					<c:if test="${detail.last_bno != 'latest'}">
+						<a href="/board/detail?bno=${detail.last_bno}"><button type="button" class="btn_prev">▲ 이전글</button></a>
+					</c:if>
+					<c:if test="${detail.next_bno != 'oldest'}">
+						<a href="/board/detail?bno=${detail.next_bno}"><button type="button" class="btn_next">▼ 다음글</button></a>
+					</c:if>
 					<a href="/board/list"><button type="button" class="btn_list">목록</button></a>
 				</div>
 				<div class="contentBox">
@@ -55,8 +60,8 @@
 					</form>
 				</div>
 				<div class="bottomBtns">
-					<button type="button">목록</button>
-					<button type="button" id="toTheTop">▲top</button>
+					<a href="/board/list"><button type="button">목록</button></a>
+					<button type="button" id="toTheTop">⬆ top</button>
 				</div>
 		
 			</div>
