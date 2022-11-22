@@ -19,6 +19,9 @@ public interface BoardMapper {
 	// 글 상세 페이지 DB설계
 	public BoardVO detail(BoardVO board);
 	
+	// 목록리스트에서 제목을 클릭 한 후 상세내용을 조회 할 때 조회수도 같이 update하는 DB작업 설계
+	public void cntup(BoardVO board);
+	
 	// 글 수정 페이지 DB설계
 	public void modify(BoardVO board);
 	

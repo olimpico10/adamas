@@ -40,7 +40,13 @@
 		     ) as addbtns
 		where bno = #{bno};
 	</select>
-		
+	
+  	<update id="cntup">
+  		update board
+		set cnt = cnt + 1
+		where bno = #{bno}
+  	</update>
+  				
 	<update id="modify">
 		update board 
 		set category=#{category}, title=#{title}, content=#{content} 
