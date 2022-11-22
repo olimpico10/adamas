@@ -38,7 +38,7 @@ a{
 .rightContent_wrap{
 	box-sizing: border-box;
 	flex-direction: row;
-	min-width: 760px;
+	min-width: 860px;
 	width: 87%;
 	min-height: 990px;
 	height: auto;

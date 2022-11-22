@@ -36,7 +36,7 @@
 	</select>
 	
 	<select id="getSIDO" resultType="org.adamas.model.AddrVO">
-		select * from addr group by city
+		select * from addr group by city order by field(city, "서울", "부산", "울산") asc
 	</select>
 	
 	<select id="getGUGUN" resultType="org.adamas.model.AddrVO">
