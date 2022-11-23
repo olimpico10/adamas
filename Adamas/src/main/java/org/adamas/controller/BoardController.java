@@ -44,10 +44,10 @@ public class BoardController {
 	
 	// 글 상세 페이지
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public String detail(Model model, BoardVO board) {
+	public String detail(Model model, BoardVO board, CriteriaVO cri) {
 		model.addAttribute("detail", bs.detail(board));
-		System.out.println(bs.detail(board));
-		
+		model.addAttribute("paging", cri);
+	
 		return "board/detail";
 	}
 	

@@ -37,6 +37,7 @@ public class BoardServiceimpl implements BoardService {
 	// 글 상세 페이지 추상메서드 구현
 	public BoardVO detail(BoardVO board) {
 		bm.cntup(board);
+		System.out.println("서비스 영역 : "+board);
 		
 		return bm.detail(board);
 	}

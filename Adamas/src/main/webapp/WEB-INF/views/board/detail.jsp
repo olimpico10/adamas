@@ -30,7 +30,7 @@
 					<c:if test="${detail.next_bno != 'oldest'}">
 						<a href="/board/detail?bno=${detail.next_bno}"><button type="button" class="btn_next">▼ 다음글</button></a>
 					</c:if>
-					<a href="/board/list"><button type="button" class="btn_list">목록</button></a>
+					<a href="/board/list?pageNum=${paging.pageNum}"><button type="button" class="btn_list">목록</button></a>
 				</div>
 				<div class="contentBox">
 					<form method="post">
@@ -60,7 +60,7 @@
 					</form>
 				</div>
 				<div class="bottomBtns">
-					<a href="/board/list"><button type="button">목록</button></a>
+					<a href="/board/list?pageNum=${paging.pageNum}"><button type="button">목록</button></a>
 					<button type="button" id="toTheTop">⬆ top</button>
 				</div>
 		
