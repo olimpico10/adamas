@@ -18,7 +18,7 @@
 					<a href="/member/login">로그인</a>
 				</c:when>
 				<c:otherwise>
-					<form action="member/logout" method="post">
+					<form action="/member/logout" method="post">
 						<input type="submit" value="로그아웃">
 					</form>
 				</c:otherwise>
