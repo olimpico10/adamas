@@ -9,6 +9,7 @@
 <title>상세 페이지</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/detail.js"></script>
+<script type="text/javascript" src="/resources/js/reply.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/detail.css" >
 </head>
@@ -36,6 +37,8 @@
 					<form id="removeForm" action="/board/remove" method="post">
 						<div class="content_table">
 							<input type="hidden" name="bno" id="bno" value="${detail.bno}" readonly>
+							<input type="hidden" id="loginID" value="${login.id}" readonly>
+							<input type="hidden" id="loginNick" value="${login.nick}" readonly>
 							<table>
 								<tr>
 									<td colspan='3'>${detail.title}</td>
@@ -62,14 +65,18 @@
 								</tr>
 							</table>
 						</div>
-						<div class="comment_wrap">
-							<ul>
-							</ul>
-							<ul class="enterComment">
-								<li>${login.id}</li>
-								<li><textarea rows="5" cols="119" id="enterComment"></textarea></li>
-								<li><button type="button">등록</button></li>
-							</ul>
+						<div class="reply_wrap">
+							<div class="comments_wrap">
+								<ul id="comments">
+								</ul>
+							</div>
+							<div class="enterComment_wrap">
+								<ul class="enterCommentUl">
+									<li>${login.nick}</li>
+									<li><textarea id="enterComment"></textarea></li>
+									<li><button type="button" id="regComment">등록</button></li>
+								</ul>
+							</div>
 						</div>
 					</form>
 				</div>

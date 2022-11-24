@@ -106,24 +106,64 @@
 	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.comment_wrap{
+/* 오른쪽 영역 > content 영역 > reply_wrap 영역 */
+.reply_wrap{
 	width: 100%;
 	height: auto;
 	border-radius: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	background: white;
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items : center;
 }
 
-.enterComment > li{
+.comments_wrap{
+	width: 95%;
+	height: auto;
+}
+
+#comments > li{
+	margin-top: 5px;
 	margin-left: -40px;
 	float: none;
-}
-
-.enterComment > li:nth-child(1), .enterComment > li:nth-child(3){
 	padding-left: 10px;
 }
 
+#commentNick{
+	font-weight: bold;
+}
+
+#comments > li:nth-child(5n-3){
+	margin-top: 10px;
+}
+
+#comments > li:nth-child(5n-1){
+	padding-bottom: 10px;
+	border-bottom: 1px solid black;
+}
+
+.enterComment_wrap{
+	width: 95%;
+	height: auto;
+	border-radius: 5px;
+	border: 1px black solid;
+}
+
+.enterCommentUl > li{
+	margin-left: -40px;
+	float: none;
+	padding-left: 10px;
+}
+
+.enterCommentUl > li:nth-child(1){
+	font-weight: bold;
+}
+
 #enterComment{
+	width: 95%;
+	height: 80px;
 	margin-top: 10px;
 	border: none;
 	resize: none;
