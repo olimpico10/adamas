@@ -11,4 +11,15 @@
 	<select id="getList" resultType="org.adamas.model.ReplyVO">
 		select * from reply where bno=#{bno}
 	</select>
+	
+	<update id="replyModify">
+		update reply
+		set comment = #{comment}
+		where rno = #{rno}
+	</update>
+	
+	<delete id="replyRemove">
+		delete from reply
+		where rno = #{rno}
+	</delete>
 </mapper>

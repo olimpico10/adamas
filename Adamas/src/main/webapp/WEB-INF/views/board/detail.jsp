@@ -84,7 +84,6 @@
 					<a href="/board/list?pageNum=${paging.pageNum}"><button type="button">목록</button></a>
 					<button type="button" id="toTheTop">⬆ top</button>
 				</div>
-		
 			</div>
 		</div>
 	</div>

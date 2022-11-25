@@ -40,5 +40,26 @@ public class ReplyController {
 
 	}
 
+	// 댓글 수정
+	@RequestMapping(value = "/replies/modify", method=RequestMethod.PUT)
+	public ResponseEntity<String> replyModify(@RequestBody ReplyVO reply){
+		System.out.println("댓글 수정 컨트롤러 : "+reply);
+		
+		int result = rs.replyModify(reply);
+		
+		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	// 댓글 삭제
+	@RequestMapping(value = "/replies/remove/{rno}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> replyRemove(@PathVariable int rno){
+		System.out.println("컨트롤러 삭제 : "+rno);
+		
+		int result = rs.replyRemove(rno);
+		
+		return result==1? new ResponseEntity<>("success",HttpStatus.OK)
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 
 }

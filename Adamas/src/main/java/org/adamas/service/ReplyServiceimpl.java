@@ -24,4 +24,16 @@ public class ReplyServiceimpl implements ReplyService{
 		
 		return rm.getList(bno);
 	}
+	
+	// 댓글 수정을 위한 추상메서드 구현
+	public int replyModify(ReplyVO reply) {
+		
+		return rm.replyModify(reply);
+	}
+	
+	// 댓글 삭제를 위한 추상메서드 구현
+	public int replyRemove(int rno) {
+		
+		return rm.replyRemove(rno);
+	}
 }
