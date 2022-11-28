@@ -22,4 +22,9 @@
 		delete from reply
 		where rno = #{rno}
 	</delete>
+	
+	<insert id="recommentWrite">
+		insert into recomments(rno, recomment, id, nick)
+		values(#{rno}, #{recomment}, #{id}, #{nick})
+	</insert>
 </mapper>

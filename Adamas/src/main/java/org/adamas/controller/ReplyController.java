@@ -2,6 +2,7 @@ package org.adamas.controller;
 
 import java.util.ArrayList;
 
+import org.adamas.model.RecommentsVO;
 import org.adamas.model.ReplyVO;
 import org.adamas.service.ReplyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,4 +63,14 @@ public class ReplyController {
 						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
+	// 대댓글 쓰기
+	@RequestMapping(value = "/replies/newRecomment", method=RequestMethod.POST)
+	public ResponseEntity<String> recommentWrite(@RequestBody RecommentsVO rcmt){
+		
+		int result =  rs.recommentWrite(rcmt);
+		System.out.println(rcmt);
+		
+		return result == 1? new ResponseEntity<>("success",HttpStatus.OK)
+						  : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

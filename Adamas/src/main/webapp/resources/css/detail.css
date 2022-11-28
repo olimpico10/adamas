@@ -133,17 +133,35 @@
 	padding-left: 10px;
 }
 
-#commentNick{
+.writer{
+	border-radius: 7px;
+	border: 1px solid red;
+	padding: 3px;
+	color: red;
+}
+
+.cmtLi{
+	padding-top: 10px;
 	font-weight: bold;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#comments > li:nth-child(5n-3){
+.commentTextarea{
+	width: 95%;
+	height: auto;
 	margin-top: 10px;
+	border: none;
+	resize: none;
 }
 
-#comments > li:nth-child(5n){
+.commentTextarea:focus{
+	outline: none;
+}
+
+.btnLi{
 	padding-bottom: 10px;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	
 }
 
 #comments > li > button{
@@ -167,6 +185,47 @@
 
 #reg, #cancel{
 	background: #FFD700;
+}
+
+.enterRecomment_wrap{
+	width: 95%;
+	height: auto;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+	border: 1px black solid;
+}
+
+.enterRecomment_wrap > li{
+	float: none;
+}
+
+#enterRecomment{
+	width: 95%;
+	height: 80px;
+	margin-top: 10px;
+	border: none;
+	resize: none;
+}
+
+#enterRecomment:focus{
+	outline: none;
+}
+
+#reCommentNick{
+	font-weight: bold;
+}
+
+.reCommentBox > button{
+	margin-right: 10px;
+	border-radius: 5px;
+	border: 1px black solid;
+	background: #FFD700;
+	cursor: pointer;	
+}
+
+.reCommentBox > button:hover {
+	background: #6495ED;
 }
 
 .enterComment_wrap{

@@ -3,6 +3,7 @@ package org.adamas.service;
 import java.util.ArrayList;
 
 import org.adamas.mapper.ReplyMapper;
+import org.adamas.model.RecommentsVO;
 import org.adamas.model.ReplyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,11 @@ public class ReplyServiceimpl implements ReplyService{
 	public int replyRemove(int rno) {
 		
 		return rm.replyRemove(rno);
+	}
+	
+	// 대댓글 쓰기를 위한 추상메서드 구현
+	public int recommentWrite(RecommentsVO rcmt) {
+		
+		return rm.recommentWrite(rcmt);
 	}
 }

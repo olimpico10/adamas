@@ -2,6 +2,7 @@ package org.adamas.service;
 
 import java.util.ArrayList;
 
+import org.adamas.model.RecommentsVO;
 import org.adamas.model.ReplyVO;
 
 public interface ReplyService {
@@ -17,5 +18,8 @@ public interface ReplyService {
 	
 	// 댓글 삭제를 위한 설계
 	public int replyRemove(int rno);
+	
+	// 대댓글 쓰기를 위한 설계
+	public int recommentWrite(RecommentsVO rcmt);
 
 }
