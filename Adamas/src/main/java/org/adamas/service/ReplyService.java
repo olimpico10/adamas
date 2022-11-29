@@ -21,5 +21,13 @@ public interface ReplyService {
 	
 	// 대댓글 쓰기를 위한 설계
 	public int recommentWrite(RecommentsVO rcmt);
+	
+	// 대댓글 리스트를 위한 설계
+	public ArrayList<RecommentsVO> getRecommentList(int rno);
 
+	// 대댓글 수정을 위한 설계
+	public int recommentModify(RecommentsVO rcmt);
+	
+	// 대댓글 삭제를 위한 설계
+	public int recommentRemove(int rcno);
 }

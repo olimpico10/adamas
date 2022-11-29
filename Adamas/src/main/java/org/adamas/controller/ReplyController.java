@@ -73,4 +73,35 @@ public class ReplyController {
 		return result == 1? new ResponseEntity<>("success",HttpStatus.OK)
 						  : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	
+	// 대댓글 리스트
+	@RequestMapping(value = "/replies/recomment/{rno}", method=RequestMethod.GET)
+	public ResponseEntity<ArrayList<RecommentsVO>> getRecommentList(@PathVariable int rno){
+		
+		System.out.println("controller : "+rno+"번 댓글의 대댓글");
+		
+		return new ResponseEntity<>(rs.getRecommentList(rno),HttpStatus.OK);
+	}
+	
+	// 대댓글 수정
+	@RequestMapping(value = "/replies/modifyRecomment", method=RequestMethod.PUT)
+	public ResponseEntity<String> recommentModify(@RequestBody RecommentsVO rcmt){
+		System.out.println("대댓글 수정 컨트롤러 : "+rcmt);
+		
+		int result = rs.recommentModify(rcmt);
+		
+		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	// 댓글 삭제
+	@RequestMapping(value = "/replies/removeRecomment/{rcno}", method=RequestMethod.DELETE)
+	public ResponseEntity<String> recommentRemove(@PathVariable int rcno){
+		System.out.println("컨트롤러 삭제 : "+rcno);
+		
+		int result = rs.recommentRemove(rcno);
+		
+		return result==1? new ResponseEntity<>("success",HttpStatus.OK)
+						: new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

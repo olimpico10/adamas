@@ -27,4 +27,19 @@
 		insert into recomments(rno, recomment, id, nick)
 		values(#{rno}, #{recomment}, #{id}, #{nick})
 	</insert>
+	
+	<select id="getRecommentList" resultType="org.adamas.model.RecommentsVO">
+		select * from recomments where rno=#{rno} order by rcno desc
+	</select>
+	
+	<update id="recommentModify">
+		update recomments
+		set recomment = #{recomment}
+		where rcno = #{rcno}
+	</update>
+	
+	<delete id="recommentRemove">
+		delete from recomments
+		where rcno = #{rcno}
+	</delete>
 </mapper>

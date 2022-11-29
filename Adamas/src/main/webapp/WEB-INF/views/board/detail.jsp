@@ -44,7 +44,7 @@
 									<td colspan='3'>${detail.title}</td>
 								</tr>
 								<tr>
-									<td>${detail.id}</td>
+									<td>${detail.nick}</td>
 									<td>${detail.regdate}</td>
 									<td id="moreBtntd">
 										<img id="moreBtn" src="/resources/images/moreBtn.png">
@@ -61,7 +61,7 @@
 									<td colspan='3'>${detail.content}</td>
 								</tr>
 								<tr>
-									<td colspan='3'>좋아요 댓글</td>
+									<td colspan='3'>좋아요</td>
 								</tr>
 							</table>
 						</div>

@@ -43,4 +43,22 @@ public class ReplyServiceimpl implements ReplyService{
 		
 		return rm.recommentWrite(rcmt);
 	}
+	
+	// 대댓글 리스트를 위한 추상메서드 구현
+	public ArrayList<RecommentsVO> getRecommentList(int rno){
+		
+		return rm.getRecommentList(rno);
+	}
+	
+	// 대댓글 수정을 위한 추상메서드 구현
+	public int recommentModify(RecommentsVO rcmt) {
+		
+		return rm.recommentModify(rcmt);
+	}
+	
+	// 대댓글 삭제를 위한 추상메서드 구현
+	public int recommentRemove(int rcno) {
+		
+		return rm.recommentRemove(rcno);
+	}
 }
