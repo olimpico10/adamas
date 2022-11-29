@@ -10,6 +10,7 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/detail.js"></script>
 <script type="text/javascript" src="/resources/js/reply.js"></script>
+<script type="text/javascript" src="/resources/js/like.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/detail.css" >
 </head>
@@ -61,7 +62,7 @@
 									<td colspan='3'>${detail.content}</td>
 								</tr>
 								<tr>
-									<td colspan='3'>좋아요</td>
+									<td colspan='3' id="likeTd"><button type="button" id="likeBtn"><img src="/resources/images/nstar.png" id="likeImg"></button><span> 좋아요 </span><span id="likeTotal">0</span></td>
 								</tr>
 							</table>
 						</div>

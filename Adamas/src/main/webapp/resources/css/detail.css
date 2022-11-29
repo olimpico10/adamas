@@ -103,7 +103,9 @@
 }
 
 .content_table > table tr:last-child > td{
+	text-align: center;
 	padding-top: 30px;
+	padding-bottom: 10px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
