@@ -9,6 +9,10 @@ button{
 	border-radius: 5px;
 }
 
+button:hover{
+	background: #87CEEB;
+}
+
 .chkBtn{
 	opacity: 0.2;
 }

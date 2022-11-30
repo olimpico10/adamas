@@ -83,7 +83,7 @@ hr{
 }
 
 #myPaging li{
-	padding-left: 8px;
+	padding-left: 15px;
 	cursor: pointer;
 }
 
@@ -132,6 +132,7 @@ hr{
 
 .winning tr td{
 	border-bottom: 1px solid;
+	padding: 10px;
 }
 
 .winning tr:first-child td{
@@ -188,6 +189,6 @@ hr{
 }
 
 #wPaging li{
-	padding-left: 8px;
+	padding-left: 15px;
 	cursor: pointer;
 }
