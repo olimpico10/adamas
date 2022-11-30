@@ -14,14 +14,44 @@
 <script src="/resources/summernote/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript" src="/resources/js/summerNote.js"></script>
 <!--  -->
+<script type="text/javascript" src="/resources/js/modify.js"></script>
+<link rel="stylesheet" href="/resources/css/common.css" >
+<link rel="stylesheet" href="/resources/css/modify.css" >
 </head>
 <body>
-	<form action="/board/modify" method="post">
-		<input type="text" name="bno" value="${modify.bno}" readonly>
-		<input type="text" name="title" value="${modify.title}">
-		<input type="text" name="category" value="${modify.category}" >
-		<textarea id="summernote" name="content">${modify.content}</textarea>
-		<input type="submit" value="수정하기">
-	</form>
+	<div class="wrap">
+		<div class="leftContent_wrap">
+			<!-- 헤더 -->
+			<%@ include file="../main/header.jsp"%>
+		</div>
+		<div class="rightContent_wrap">
+			<!-- myInfo -->
+			<%@ include file="../main/info.jsp"%>
+			
+			<div class="content">
+				<div class="modify_wrap">
+					<form action="/board/modify" id="modifyForm" method="post">
+						<div class="modify_title">
+							<input type="hidden" name="bno" id="bno" value="${modify.bno}" readonly>
+							<input type="hidden" name="category" value="${modify.category}" readonly>
+							<table class="title_table">
+								<tr>
+									<td><input type="text" name="title" id="modifyTitle" value="${modify.title}" maxlength="100"></td>
+								<tr>
+							</table>
+						</div>
+						<div class="summernote_wrap">
+							<textarea id="summernote" name="content">${modify.content}</textarea>
+						</div>
+						<div class="modifyBtn_wrap">
+							<button class="btns" id="modifyBtn" type="button">수정하기</button>
+							<button class="btns" id="cancelBtn" type="button">취소</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

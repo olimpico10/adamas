@@ -1,0 +1,69 @@
+@charset "EUC-KR";
+
+/* 오른쪽 영역 > content 영역 */
+.content{
+	flex-direction: column;
+	box-sizing: border-box;
+	padding-bottom: 10px;
+}
+
+/* 오른쪽 영역 > content 영역 > modify_wrap 영역 */
+.content_wrap{
+	box-sizing: border-box;
+	width: 860px;
+	min-height: 800px;
+	height: auto;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items : center;
+}
+
+/* 오른쪽 영역 > content 영역 > modify_wrap 영역 > modify_title 영역 */
+.title_table{
+	width: 100%;
+	height: auto;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.title_table td:nth-child(1){
+	width: 100%;
+}
+
+.title_table input{
+	box-sizing: border-box;
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+	width: 100%;
+	border: none;
+	background: #A9A9A9;
+}
+
+/* 오른쪽 영역 > content 영역 > modify_wrap 영역 > summernote_wrap 영역 */
+.summernote_wrap{
+	background: white;
+}
+
+/* 오른쪽 영역 > content 영역 > modify_wrap 영역 > modify_Btn 영역 */
+.writeBtn_wrap{
+	box-sizing: border-box;
+	width: 860px;
+	height: auto;
+	margin: auto;
+	padding: 5px 0 5px 0;
+}
+
+.btns{
+	height: 40px;
+	font-size: 20px;
+	margin-right: 15px;
+	border-radius: 5px;
+	border: 0;
+	cursor: pointer;
+}
+
+.btns:hover{
+	background: #87CEEB;
+}
