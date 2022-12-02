@@ -25,6 +25,7 @@ public class BoardVO {
 	// 추천수
 	private int hnocnt;
 	
+	
 	public int getBno() {
 		return bno;
 	}
