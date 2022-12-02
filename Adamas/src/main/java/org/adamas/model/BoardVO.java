@@ -22,6 +22,8 @@ public class BoardVO {
 	private String last_bno;
 	// 다음게시글 번호
 	private String next_bno;
+	// 추천수
+	private int hnocnt;
 	
 	public int getBno() {
 		return bno;
@@ -83,12 +85,18 @@ public class BoardVO {
 	public void setNext_bno(String next_bno) {
 		this.next_bno = next_bno;
 	}
+	public int getHnocnt() {
+		return hnocnt;
+	}
+	public void setHnocnt(int hnocnt) {
+		this.hnocnt = hnocnt;
+	}
 	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", id=" + id + ", nick=" + nick + ", category=" + category + ", title=" + title
 				+ ", content=" + content + ", regdate=" + regdate + ", cnt=" + cnt + ", last_bno=" + last_bno
-				+ ", next_bno=" + next_bno + "]";
+				+ ", next_bno=" + next_bno + ", hnocnt=" + hnocnt + "]";
 	}
 	
 }

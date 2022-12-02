@@ -75,7 +75,11 @@
 }
 
 .list_wrap > table tr:nth-child(1) > td:nth-child(5){
-	width: 100px;
+	width: 60px;
+}
+
+.list_wrap > table tr:nth-child(1) > td:nth-child(6){
+	width: 60px;
 }
 
 .list_wrap > table tr > td:nth-child(2){

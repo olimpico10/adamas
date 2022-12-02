@@ -27,7 +27,7 @@
 				<div class="list_wrap">
 					<table class="list_table">
 						<tr>
-							<td>글번호</td><td>제목</td><td>닉네임</td><td>작성일시</td><td>조회수</td>
+							<td>글번호</td><td>제목</td><td>닉네임</td><td>작성일시</td><td>조회수</td><td>추천수</td>
 						</tr>
 						<c:forEach items="${list}" var="list">
 							<tr>
@@ -36,6 +36,7 @@
 								<td>${list.nick}</td>
 								<td>${list.regdate}</td>
 								<td>${list.cnt}</td>
+								<td>${list.hnocnt}</td>
 							</tr>
 						</c:forEach>
 					</table>				
