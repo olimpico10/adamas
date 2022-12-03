@@ -29,15 +29,42 @@
 	height: auto;
 }
 
-/* 메뉴 영역 > ul */
-.navUl{
-	margin-left: -30px;
+.nav_wrap > div{
+	margin-top: 40px;
+	width: 100%;
+	text-align: center;
 }
 
-/* 메뉴 영역 > ul> li */
-.navLi{
-	margin-top: 40px;
+.nav_wrap span{
 	font-size: 18px;
 	font-weight: bold;
 }
 
+.nav_wrap span.normal:after{
+	content: ' ▶';
+}
+
+.nav_wrap span.special:after{
+	content: ' ▼';
+}
+
+.navUl{
+	width: 180px;
+	display: none;
+	border: 1px solid;
+	border-radius: 5px;
+	margin-top: 5px;
+	background: #FFFAFA;
+}
+
+.navUl > li{
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: -40px;
+	float: none;
+}
+
+.navUl > li:hover{
+	background: #6495ED;
+}
