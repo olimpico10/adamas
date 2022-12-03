@@ -2,6 +2,7 @@
  * 회원가입 관련 javascript 일단 생년월일 부분하고 이메일 부분 유효성 검사가 충분히 되지 않아도 가입이 되게 하자
  */
 
+
 $(document).ready(function(){
 	var idChk;
 	var pswdChk;

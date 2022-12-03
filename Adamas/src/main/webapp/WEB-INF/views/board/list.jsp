@@ -33,7 +33,7 @@
 						<c:forEach items="${list}" var="list">
 							<tr>
 								<td>${list.bno}</td>
-								<td><a href="/board/detail?bno=${list.bno}&pageNum=${paging.cri.pageNum}">${list.title}</a></td>
+								<td><a href="/board/detail?bno=${list.bno}&pageNum=${paging.cri.pageNum}">${list.title}</a><span> [${list.totalReplycnt}] </span></td>
 								<td>${list.nick}</td>
 								<td>${list.regdate}</td>
 								<td>${list.cnt}</td>

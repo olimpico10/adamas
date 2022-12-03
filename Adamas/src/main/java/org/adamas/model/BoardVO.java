@@ -24,6 +24,8 @@ public class BoardVO {
 	private String next_bno;
 	// 추천수
 	private int hnocnt;
+	// 댓글수
+	private int totalReplycnt;
 	
 	
 	public int getBno() {
@@ -92,12 +94,18 @@ public class BoardVO {
 	public void setHnocnt(int hnocnt) {
 		this.hnocnt = hnocnt;
 	}
+	public int getTotalReplycnt() {
+		return totalReplycnt;
+	}
+	public void setTotalReplycnt(int totalReplycnt) {
+		this.totalReplycnt = totalReplycnt;
+	}
 	
 	@Override
 	public String toString() {
 		return "BoardVO [bno=" + bno + ", id=" + id + ", nick=" + nick + ", category=" + category + ", title=" + title
 				+ ", content=" + content + ", regdate=" + regdate + ", cnt=" + cnt + ", last_bno=" + last_bno
-				+ ", next_bno=" + next_bno + ", hnocnt=" + hnocnt + "]";
+				+ ", next_bno=" + next_bno + ", hnocnt=" + hnocnt + ", totalReplycnt=" + totalReplycnt + "]";
 	}
 	
 }

@@ -73,34 +73,38 @@ $(document).ready(function(){
 		var rnoValue = $(this).data("rno");
 		var str = "";
 		
-		getList(bnoValue);		// 대댓글을 누른 상태에서 다른 대댓글 쓰기를 누르면 여러개가 열릴 수 있으므로 getList() 불렀다.
-		for(i=0; i<rnoList.length; i++){
-			getRecommentList(rnoList[i]);
-		}
-		
-		str += "<div class='enterRecomment_wrap'>"
-		str += "<li class='reCommentBox' id='reCommentNick'>"+nickValue+"</li>"
-		str += "<li class='reCommentBox'><textarea id='enterRecomment'></textarea></li>"
-		str += "<li class='reCommentBox'><button type='button' id='regRecomment'>등록</button>"
-		str += "<button type='button' id='cancelRecomment'>취소</button></li>"
-		str += "</div>"
-		
-		// alert("이 댓글의 번호는 "+rnoValue);
-		$("#buttonLi"+rnoValue).after(str);
-		
-		// 대댓글 등록 클릭
-		$("#regRecomment").on("click", function(){
-			recommentValue = $("#enterRecomment").val();
-			addRecomment({rno:rnoValue, recomment:recommentValue, id:idValue, nick:nickValue});
-		})
-		
-		// 대댓글 취소 클릭
-		$("#cancelRecomment").on("click", function(){
-			getList(bnoValue);
+		if(!idValue){
+			alert("로그인이 필요한 서비스입니다.");
+		} else{
+			getList(bnoValue);		// 대댓글을 누른 상태에서 다른 대댓글 쓰기를 누르면 여러개가 열릴 수 있으므로 getList() 불렀다.
 			for(i=0; i<rnoList.length; i++){
 				getRecommentList(rnoList[i]);
 			}
-		})
+
+			str += "<div class='enterRecomment_wrap'>"
+			str += "<li class='reCommentBox' id='reCommentNick'>"+nickValue+"</li>"
+			str += "<li class='reCommentBox'><textarea id='enterRecomment'></textarea></li>"
+			str += "<li class='reCommentBox'><button type='button' id='regRecomment'>등록</button>"
+			str += "<button type='button' id='cancelRecomment'>취소</button></li>"
+			str += "</div>"
+				
+			// alert("이 댓글의 번호는 "+rnoValue);
+			$("#buttonLi"+rnoValue).after(str);
+				
+			// 대댓글 등록 클릭
+			$("#regRecomment").on("click", function(){
+				recommentValue = $("#enterRecomment").val();
+				addRecomment({rno:rnoValue, recomment:recommentValue, id:idValue, nick:nickValue});
+			})
+				
+			// 대댓글 취소 클릭
+			$("#cancelRecomment").on("click", function(){
+				getList(bnoValue);
+				for(i=0; i<rnoList.length; i++){
+					getRecommentList(rnoList[i]);
+				}
+			})
+		}
 	})
 	
 	// 대댓글 수정버튼 클릭

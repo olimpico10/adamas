@@ -8,7 +8,40 @@
 		insert into board(id, nick, category, title, content)
 		values(#{id}, #{nick}, #{category}, #{title}, #{content})
 	</insert>
+
+	<select id="list" resultType="org.adamas.model.BoardVO">	
+		select *, (select count(*) from b_like where bno=boardlist.bno) as hnocnt,
+			   ifnull((
+			   		   select sum(rcnt) rccnt
+			   		   from (
+			   		   		 select bno,count(*) rcnt
+			   		   		 from (
+			   		   		 	   select rno,comment,replydate,id,nick,bno
+			   		   		 	   from reply
+			   		   		 	   union all
+			   		   		 	   select rno,recomment,recommentdate, id, nick, rcno
+			   		   		 	   from recomments
+			   		   		 	   ) as rep
+			   		   		 	   group by rno
+			   		   		 ) rep_cnt
+			   		   		 group by bno
+			   		   		 having bno = boardlist.bno
+			   		    ), 0) as totalreplycnt
+		from(
+			 select @rownum:=@rownum+1 rownum, b.*
+	     	 from board b, (select @rownum:=0) as tmp
+	     	 order by bno desc
+			 ) as boardlist
+		<![CDATA[
+		where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
+		]]>
+	</select>
+
+	<select id="total" resultType="int">
+		select count(*) from board
+	</select>
 	
+	<!--  
 	<select id="list" resultType="org.adamas.model.BoardVO">
 		select *, (select count(*) from b_like where bno=boardlist.bno) as hnocnt 
 		from(
@@ -20,11 +53,8 @@
 		where rownum> (#{pageNum}-1)*#{amount} and rownum <= #{pageNum}*#{amount}
 		]]>
 	</select>
-	
-	<select id="total" resultType="int">
-		select count(*) from board
-	</select>
-	
+	-->
+
 	<!--  
 	<select id="detail" resultType="org.adamas.model.BoardVO">
 		select * from board where bno=#{bno}
