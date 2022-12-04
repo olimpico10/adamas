@@ -1,5 +1,6 @@
 @charset "EUC-KR";
 
+
 /* 오른쪽 영역 > content 영역 */
 .content{
 	flex-direction: column;
