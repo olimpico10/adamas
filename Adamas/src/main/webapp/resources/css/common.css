@@ -21,7 +21,6 @@ a{
 .wrap{
 	min-width: 1000px;
 	width: 100%;
-	background: orange;
 	display: flex;
 }
 
@@ -42,7 +41,7 @@ a{
 	width: 87%;
 	min-height: 990px;
 	height: auto;
-	background: #E6E6FA;
+	background: #dcdcdc;
 }
 
 /* 오른쪽 영역 > content 영역 */

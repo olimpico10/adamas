@@ -55,7 +55,7 @@ input[id="ball2"]+label {
 }
 
 input[id="ball3"]+label {
-	background-image: url("/resources/images/ball4.png");
+	background-image: url("/resources/images/ball3.png");
 }
 
 input[id="ball4"]+label {

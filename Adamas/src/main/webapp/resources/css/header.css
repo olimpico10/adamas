@@ -6,7 +6,7 @@
 	box-sizing: border-box;
 	min-width: 240px;
 	width: 15%;
-	min-height: 970px;
+	min-height: 940px;
 	height: auto;
 	padding: 10px;
 }
@@ -38,6 +38,10 @@
 .nav_wrap span{
 	font-size: 18px;
 	font-weight: bold;
+}
+
+.nav_wrap span:hover{
+	cursor: pointer;
 }
 
 .nav_wrap span.normal:after{
