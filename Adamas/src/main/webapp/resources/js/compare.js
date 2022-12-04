@@ -106,7 +106,7 @@ $(document).ready(function(){
 					}
 				}
 				
-				if(str === ""){
+				if(str1 === "" && str2 === "" && str3 === "" && str4 === "" && str5 === ""){
 					str += "<li>검색 된 자료가 없습니다.</li>"
 				}
 				

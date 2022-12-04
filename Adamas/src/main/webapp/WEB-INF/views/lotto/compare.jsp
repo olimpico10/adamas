@@ -9,6 +9,7 @@
 <title>과거 순위보기</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/compare.js"></script>
+<link rel="stylesheet" href="/resources/css/compare.css" >
 </head>
 <body>
 	<h1>과거순위 보기</h1>
