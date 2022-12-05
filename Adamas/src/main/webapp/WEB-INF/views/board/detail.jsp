@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>상세 페이지</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/header.js"></script>
 <script type="text/javascript" src="/resources/js/detail.js"></script>
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 <script type="text/javascript" src="/resources/js/like.js"></script>

@@ -14,6 +14,7 @@
 <script src="/resources/summernote/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript" src="/resources/js/summerNote.js"></script>
 <!--  -->
+<script type="text/javascript" src="/resources/js/header.js"></script>
 <script type="text/javascript" src="/resources/js/modify.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/modify.css" >

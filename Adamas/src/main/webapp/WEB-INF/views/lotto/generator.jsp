@@ -8,6 +8,7 @@
 <title>번호발생기</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/resources/js/generator.js"></script>
+<script type="text/javascript" src="/resources/js/header.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/ball.css" >
 <link rel="stylesheet" href="/resources/css/generator.css" >

@@ -87,6 +87,10 @@
 	text-align: left;
 }
 
+.replycnt{
+	color: red;
+}
+
 /* 오른쪽 영역 > content 영역 > content_pagingArea 영역 */
 .pagingArea{
 	box-sizing: border-box;

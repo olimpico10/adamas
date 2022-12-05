@@ -25,6 +25,7 @@ $(document).ready(function(){
 	// remove를 선택했을 때
 	$("#remove").on("click", function(){
 		$("#removeForm").submit();
+		alert("게시글을 삭제했습니다.")
 	})
 	
 	// copyUrl를 선택했을 때

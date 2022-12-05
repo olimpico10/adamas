@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>리스트 페이지</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/resources/js/header.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/list.css" >
 </head>
@@ -33,7 +35,7 @@
 						<c:forEach items="${list}" var="list">
 							<tr>
 								<td>${list.bno}</td>
-								<td><a href="/board/detail?bno=${list.bno}&pageNum=${paging.cri.pageNum}">${list.title}</a><span> [${list.totalReplycnt}] </span></td>
+								<td><a href="/board/detail?bno=${list.bno}&pageNum=${paging.cri.pageNum}">${list.title}</a><span class="replycnt"> [${list.totalReplycnt}] </span></td>
 								<td>${list.nick}</td>
 								<td>${list.regdate}</td>
 								<td>${list.cnt}</td>

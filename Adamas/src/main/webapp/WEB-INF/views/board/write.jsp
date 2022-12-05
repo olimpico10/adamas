@@ -14,6 +14,7 @@
 <script src="/resources/summernote/lang/summernote-ko-KR.js"></script>
 <script type="text/javascript" src="/resources/js/summerNote.js"></script>
 <!--  -->
+<script type="text/javascript" src="/resources/js/header.js"></script>
 <script type="text/javascript" src="/resources/js/write.js"></script>
 <link rel="stylesheet" href="/resources/css/common.css" >
 <link rel="stylesheet" href="/resources/css/write.css" >
@@ -39,7 +40,7 @@
 							<input type="hidden" name="category" value="free" readonly>
 							<table class="title_table">
 								<tr>
-									<td><input type="text" name="title" id="writeTitle" maxlength="100"></td>
+									<td><input type="text" name="title" id="writeTitle" maxlength="100" placeholder="제목을 입력하세요"></td>
 								</tr>
 							</table>
 						</div>
