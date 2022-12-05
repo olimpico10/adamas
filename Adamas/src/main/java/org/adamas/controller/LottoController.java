@@ -31,7 +31,7 @@ public class LottoController {
 		return "lotto/randomGenerator";
 	}
 	
-	// 랜덤 발생기(insert)
+	// 발생 번호(insert)
 	@RequestMapping(value = "/lotto/Storage", method=RequestMethod.POST)
 	public ResponseEntity<String> Storage(@RequestBody MylottoVO myLotto){
 		// insert가 성공했으면 result변수에 1저장
