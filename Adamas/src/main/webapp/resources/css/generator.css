@@ -70,6 +70,7 @@ button:hover{
 	width: 90%;
 	height: 40vh;
 	margin: auto;
+	margin-top: 20px;
 }
 
 /* 오른쪽 영역 > content 영역 > content_num 영역 > num_wrap 영역 */
